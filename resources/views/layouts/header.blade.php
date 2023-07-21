@@ -38,19 +38,19 @@
 
                     <ul class="dropdown-menu border-0 shadow">
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('users.index') }}">
                                 <i class="fa fa-users"></i>
                                 Funcionários
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('vehicles.index') }}">
                                 <i class="fas fa-truck-pickup"></i>
                                 Veículos
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('fluids.index') }}">
                                 <i class="fas fa-vial"></i>
                                 Tipos de Fluído
                             </a>

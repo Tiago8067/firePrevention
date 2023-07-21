@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    ola está na HomePage
+    ola está na Index dos Veiculos
 @endsection
