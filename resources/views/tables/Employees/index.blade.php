@@ -12,7 +12,8 @@
                     <div class="col-md-6 d-flex justify-content-end">
                         {{-- <a class="btn btn-success mx-1" data-toggle="modal" data-target="#createUser">Criar Novo Funcionário</a> --}}
 
-                        <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal" data-bs-target="#createUser">Criar
+                        <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
+                            data-bs-target="#createUser">Criar
                             Novo Funcionário</button>
                         <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="createUser" aria-hidden="true">
@@ -60,17 +61,34 @@
                                             <i class="far fa-eye"></i>
                                         </a> --}}
                                         <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Editar Funcionáro">
+                                            data-placement="top" title="Editar Funcionáro" data-bs-toggle="modal"
+                                            data-bs-target="#editUser">
                                             <i class="far fa-edit"></i>
                                         </a>
+                                        <div class="modal fade" id="editUser" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="editUser"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                @include('tables.Employees.edit')
+                                            </div>
+                                        </div>
 
                                         <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Funcionáro">
+                                            data-placement="top" title="Eliminar Funcionáro" data-bs-toggle="modal"
+                                            data-bs-target="#deleteUser">
                                             <i class="far fa-trash-alt"></i>
                                         </a>
+                                        <div class="modal fade" id="deleteUser" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteUser"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                @include('tables.Employees.delete')
+                                            </div>
+                                        </div>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Ver Mais Detalhes">
+                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                            href="{{ route('users.show', $user->id) }}" data-placement="top"
+                                            title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
                                         </a>
                                     </div>
