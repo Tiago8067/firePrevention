@@ -22,11 +22,12 @@ class AuthController extends Controller
         $validated = auth()->attempt([
             'email' => $request->email,
             'password' => $request->password,
-            'is_admin' => 1
+            //'is_admin' => 1
         ], $request->password);
 
         if ($validated) {
-            return redirect()->route('dashboard')->with('success', 'Login Successfull');
+            return redirect()->route('index.home')->with('success', 'Login Successfull');
+            //return 'login';
         } else {
             return redirect()->back()->with('error', 'Invalid credentials');
         }
