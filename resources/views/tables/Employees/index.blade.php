@@ -74,7 +74,8 @@
                                             </div>
                                         </div> --}}
                                         <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('users.edit', $user->id) }}" data-placement="top">
+                                            href="{{ route('users.edit', $user->id) }}" data-placement="top"
+                                            title="Editar Funcionáro">
                                             <i class="far fa-edit"></i>
                                         </a>
 

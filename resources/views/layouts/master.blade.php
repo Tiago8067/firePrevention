@@ -26,6 +26,8 @@
         @yield('content')
         @yield('contentShow')
         @yield('contentEdit')
+        @yield('contentShowVehicle')
+        @yield('contentEditVehicle')
     </div>
 
 

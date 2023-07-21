@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Veiculo;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\returnSelf;
 
 class VehicleController extends Controller
 {
@@ -12,7 +15,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        return view('tables.Vehicles.index');
+        $veiculos = Veiculo::all();   
+        return view('tables.Vehicles.index', compact('veiculos'));
     }
 
     /**
@@ -28,31 +32,47 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $veiculo = new Veiculo();
+        $veiculo->marca = $request->marca;
+        $veiculo->modelo = $request->modelo;
+        $veiculo->matricula = $request->matricula;
+
+        $veiculo->save();
+
+        return redirect()->route('vehicles.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $veiculo = Veiculo::FindOrFail($id);
+        return view('tables.Vehicles.show', compact('veiculo'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $veiculo = Veiculo::FindOrFail($id);
+        return view('tables.Vehicles.edit', compact('veiculo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $veiculo = Veiculo::FindOrFail($id);
+        $veiculo->marca = $request->marca;
+        $veiculo->modelo = $request->modelo;
+        $veiculo->matricula = $request->matricula;
+
+        $veiculo->save();
+
+        return redirect()->route('vehicles.index');
     }
 
     /**
