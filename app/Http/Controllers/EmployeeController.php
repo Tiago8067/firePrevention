@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -12,7 +13,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('tables.Employees.index');
+        $users = User::all();
+        return view('tables.Employees.index', compact('users'));
     }
 
     /**
