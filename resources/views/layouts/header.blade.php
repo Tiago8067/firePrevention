@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand ms-5" href="{{ route('index.home') }}">
             <img src="{{ asset('admin-assets/dist/img/extintor.png') }}" alt="Logo" width="30" height="40">
             <span class="brand-text font-weight-light text-danger"><b>Fire</b>Prevention</span>
         </a>
@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item active" href="#">
+                            <a class="dropdown-item active" href="{{ route('index.home') }}">
                                 <i class="fas fa-chart-line"></i>
                                 Gráficos
                             </a>
@@ -65,7 +65,7 @@
                 </li>
             </ul>
         </div>
-        <ul class="navbar-nav ml-auto order-1 order-md-3 navbar-no-expand">
+        <ul class="navbar-nav ml-auto order-1 order-md-3 navbar-no-expand me-5">
             <li>
                 <a class="btn btn-default btn-flat float-reght btn-block" href="#">
                     <i class="fa fa-fw fa-power-off text-red"></i>

@@ -60,8 +60,9 @@
                                             style="pointer-events: none;" data-placement="top" title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
                                         </a> --}}
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Editar Funcionáro" data-bs-toggle="modal"
+                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                            href="{{ route('users.edit', $user->id) }}" data-placement="top"
+                                            title="Editar Funcionáro" data-bs-toggle="modal"
                                             data-bs-target="#editUser">
                                             <i class="far fa-edit"></i>
                                         </a>
@@ -71,7 +72,11 @@
                                             <div class="modal-dialog">
                                                 @include('tables.Employees.edit')
                                             </div>
-                                        </div>
+                                        </div> --}}
+                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                            href="{{ route('users.edit', $user->id) }}" data-placement="top">
+                                            <i class="far fa-edit"></i>
+                                        </a>
 
                                         <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
                                             data-placement="top" title="Eliminar Funcionáro" data-bs-toggle="modal"
@@ -85,6 +90,15 @@
                                                 @include('tables.Employees.delete')
                                             </div>
                                         </div>
+                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                            href="{{ route('users.edit', $user->id) }}" data-placement="top">
+                                            <i class="far fa-edit"></i>
+                                        </a> --}}
+
+                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
+                                            data-placement="top">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a> --}}
 
                                         <a class="btn btn-outline-secondary btn-icon animated-hover"
                                             href="{{ route('users.show', $user->id) }}" data-placement="top"

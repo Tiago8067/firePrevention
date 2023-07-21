@@ -30,7 +30,20 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* $request->validate([
+            'name' => ['required', 'alpha', 'min:6', 'max:50'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'integer']
+        ]); */
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -45,17 +58,24 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('tables.Employees.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 
     /**

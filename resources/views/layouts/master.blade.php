@@ -24,6 +24,8 @@
 
     <div class="container">
         @yield('content')
+        @yield('contentShow')
+        @yield('contentEdit')
     </div>
 
 

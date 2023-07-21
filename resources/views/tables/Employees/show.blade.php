@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+@section('contentShow')
     <div class="main-content mt-5 mb-5">
         <div class="card">
             <div class="card-header">
@@ -44,13 +44,14 @@
 
             <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
                 {{-- <a class="btn btn-success" data-toggle="modal" data-target="#editUser">Editar</a> --}}
-                <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">Editar</a>
-                <div class="modal fade" id="editUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                {{-- <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">Editar</a> --}}
+                {{-- <div class="modal fade" id="editUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                     aria-labelledby="editUser" aria-hidden="true">
                     <div class="modal-dialog">
                         @include('tables.Employees.edit')
                     </div>
-                </div>
+                </div> --}}
+                <a type="button" class="btn btn-success" href="{{ route('users.edit', $user->id) }}">Editar</a>
 
                 {{-- <a type="button" class="btn btn-success" data-toggle="modal" data-target="#deleteUser">Eliminar</a> --}}
                 <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deleteUser">Eliminar</a>
