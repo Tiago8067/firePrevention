@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\TipoFluido;
 use Illuminate\Http\Request;
 
 class FluidController extends Controller
@@ -12,7 +13,8 @@ class FluidController extends Controller
      */
     public function index()
     {
-        return view('tables.Types_of _fluid.index');
+        $fluids = TipoFluido::all();
+        return view('tables.Types_of _fluid.index', compact('fluids'));
     }
 
     /**
@@ -28,31 +30,45 @@ class FluidController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fluid = new TipoFluido();
+        $fluid->nome = $request->nome;
+        $fluid->descricao = $request->descricao;
+
+        $fluid->save();
+
+        return redirect()->route('fluids.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $fluid = TipoFluido::findOrFail($id);
+        return view('tables.Types_of _fluid.show', compact('fluid'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $fluid = TipoFluido::findOrFail($id);
+        return view('tables.Types_of _fluid.edit', compact('fluid'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $fluid = TipoFluido::findOrFail($id);
+        $fluid->nome = $request->nome;
+        $fluid->descricao = $request->descricao;
+
+        $fluid->save();
+
+        return redirect()->route('fluids.index');
     }
 
     /**
