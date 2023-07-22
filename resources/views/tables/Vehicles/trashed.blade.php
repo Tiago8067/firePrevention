@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+@section('contentTrashVehicle')
     <div class="main-content mt-4 mb-4">
         <div class="card">
             <div class="card-header">
@@ -10,23 +10,12 @@
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        {{-- <a class="btn btn-success mx-1" data-toggle="modal" data-target="#createUser">Criar Novo Funcionário</a> --}}
-
-                        {{-- <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
-                            data-bs-target="#createUser">Criar
-                            Novo Veículo</button>
-                        <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="createUser" aria-hidden="true">
-                            <div class="modal-dialog">
-                                @include('tables.Vehicles.create')
-                            </div>
-                        </div> --}}
-                        <a class="btn btn-success mx-1 border" href="{{ route('vehicles.create') }}" data-placement="top"
+                        {{-- <a class="btn btn-success mx-1 border" href="{{ route('vehicles.create') }}" data-placement="top"
                             title="Editar Funcionáro">
                             Criar Novo Veículo
                         </a>
 
-                        <a class="btn btn-warning mx-1" href="{{ route('vehicles.trashed') }}">Veículos Apagados</a>
+                        <a class="btn btn-warning mx-1" href="#">Veículos Apagados</a> --}}
                     </div>
 
                 </div>
@@ -52,13 +41,13 @@
                                 <td>{{ $veiculo->matricula }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
                                             href="{{ route('vehicles.edit', $veiculo->id) }}" data-placement="top"
                                             title="Editar Veículo">
                                             <i class="far fa-edit"></i>
                                         </a>
 
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
+                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
                                             data-placement="top" title="Eliminar Veículo" data-bs-toggle="modal"
                                             data-bs-target="#deleteVehicle">
                                             <i class="far fa-trash-alt"></i>
@@ -69,28 +58,20 @@
                                             <div class="modal-dialog">
                                                 @include('tables.Vehicles.delete')
                                             </div>
-                                        </div> --}}
-                                        <form action="{{ route('vehicles.destroy', $veiculo->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button
-                                                class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
-                                                title="Eliminar Veículo"><i class="far fa-trash-alt"></i></button>
-                                        </form>
+                                        </div>
 
                                         <a class="btn btn-outline-secondary btn-icon animated-hover"
                                             href="{{ route('vehicles.show', $veiculo->id) }}" data-placement="top"
                                             title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{ $veiculos->links() }}
+                {{-- {{ $veiculos->links() }} --}}
             </div>
         </div>
     </div>

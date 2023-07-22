@@ -75,8 +75,28 @@ class FluidController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $fluid = TipoFluido::findOrFail($id);
+
+        $fluid -> delete();
+
+        return redirect()->route('fluids.index');
+    }
+
+    public function trashed()
+    {
+        $fluids = TipoFluido::onlyTrashed()->get();
+        return view('tables.Types_of _fluid.trashed', compact('fluids'));
+    }
+
+    public function restore($id)
+    {
+        
+    }
+
+    public function forceDelete($id)
+    {
+        
     }
 }

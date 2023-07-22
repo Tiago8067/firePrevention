@@ -46,13 +46,19 @@
             <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
                 <a type="button" class="btn btn-success" href="{{ route('fluids.edit', $fluid->id) }}">Editar</a>
 
-                <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deleteFluid">Eliminar</a>
+                {{-- <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deleteFluid">Eliminar</a>
                 <div class="modal fade" id="deleteFluid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                     aria-labelledby="deleteFluid" aria-hidden="true">
                     <div class="modal-dialog">
                         @include('tables.Types_of _fluid.delete')
                     </div>
-                </div>
+                </div> --}}
+                <form action="{{ route('fluids.destroy', $fluid->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button class="btn btn-success">Eliminar</button>
+                </form>
             </div>
 
         </div>

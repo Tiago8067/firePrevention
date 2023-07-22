@@ -28,8 +28,11 @@ Route::post('/admin/login', [AuthController::class, 'handleLogin'])->name('handl
 
 Route::get('/home', [HomeController::class, 'index'])->name('index.home');
 
+Route::get('/tables/users/trash', [EmployeeController::class, 'trashed'])->name('users.trashed');
 Route::resource('/tables/users', EmployeeController::class);
 
+Route::get('/tables/vehicles/trash', [VehicleController::class, 'trashed'])->name('vehicles.trashed');
 Route::resource('/tables/vehicles', VehicleController::class);
 
+Route::get('/tables/fluids/trash', [FluidController::class, 'trashed'])->name('fluids.trashed');
 Route::resource('/tables/fluids', FluidController::class);

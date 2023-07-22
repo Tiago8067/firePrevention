@@ -28,14 +28,20 @@
         @yield('contentCreate')
         @yield('contentShow')
         @yield('contentEdit')
+        @yield('contentDelete')
+        @yield('contentTrash')
 
         @yield('contentCreateVehicle')
         @yield('contentShowVehicle')
         @yield('contentEditVehicle')
+        @yield('contentDeleteVehicle')
+        @yield('contentTrashVehicle')
 
         @yield('contentCreateFluid')
         @yield('contentShowFluid')
         @yield('contentEditFluid')
+        @yield('contentDeleteFluid')
+        @yield('contentTrashFluid')
     </div>
 
 

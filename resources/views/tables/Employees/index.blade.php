@@ -25,7 +25,7 @@
                             Criar Novo Funcionário
                         </a>
 
-                        <a class="btn btn-warning mx-1" href="#">Funcionários Apagados</a>
+                        <a class="btn btn-warning mx-1" href="{{ route('users.trashed') }}">Funcionários Apagados</a>
                     </div>
 
                 </div>
@@ -82,7 +82,21 @@
                                             <i class="far fa-edit"></i>
                                         </a>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button
+                                                class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                title="Eliminar Funcionáro"><i class="far fa-trash-alt"></i></button>
+                                        </form>
+                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                            href="{{ route('users.destroy', $user->id) }}" data-placement="top"
+                                            title="Eliminar Funcionáro">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a> --}}
+
+                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
                                             data-placement="top" title="Eliminar Funcionáro" data-bs-toggle="modal"
                                             data-bs-target="#deleteUser">
                                             <i class="far fa-trash-alt"></i>
@@ -93,7 +107,7 @@
                                             <div class="modal-dialog">
                                                 @include('tables.Employees.delete')
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
                                             href="{{ route('users.edit', $user->id) }}" data-placement="top">
                                             <i class="far fa-edit"></i>

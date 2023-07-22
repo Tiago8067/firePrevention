@@ -55,13 +55,24 @@
                 <a type="button" class="btn btn-success" href="{{ route('users.edit', $user->id) }}">Editar</a>
 
                 {{-- <a type="button" class="btn btn-success" data-toggle="modal" data-target="#deleteUser">Eliminar</a> --}}
-                <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deleteUser">Eliminar</a>
+                {{-- <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#deleteUser">Eliminar</a>
                 <div class="modal fade" id="deleteUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                     aria-labelledby="deleteUser" aria-hidden="true">
                     <div class="modal-dialog">
                         @include('tables.Employees.delete')
                     </div>
-                </div>
+                </div> --}}
+
+                {{-- <a type="button" class="btn btn-success" href="{{ route('users.destroy', $user->id) }}">
+                    Eliminar
+                </a> --}}
+                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button
+                        class="btn btn-success">Eliminar</i></button>
+                </form>
             </div>
 
         </div>

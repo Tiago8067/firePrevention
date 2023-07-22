@@ -79,8 +79,28 @@ class VehicleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $veiculo = Veiculo::FindOrFail($id);
+
+        $veiculo -> delete();
+
+        return redirect()->route('vehicles.index');
+    }
+
+    public function trashed()
+    {
+        $veiculos = Veiculo::onlyTrashed()->get();
+        return view('tables.Vehicles.trashed', compact('veiculos'));
+    }
+
+    public function restore($id)
+    {
+        
+    }
+
+    public function forceDelete($id)
+    {
+        
     }
 }
