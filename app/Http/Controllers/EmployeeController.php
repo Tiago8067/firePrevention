@@ -99,7 +99,11 @@ class EmployeeController extends Controller
 
     public function restore($id)
     {
-        
+        $user = User::onlyTrashed()->findOrFail($id);
+
+        $user->restore();
+
+        return redirect()->back();
     }
 
     public function forceDelete($id)

@@ -6,16 +6,11 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Todos os Veículos</h4>
+                        <h4>Todos os Veículos <strong>Apagados</strong></h4>
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        {{-- <a class="btn btn-success mx-1 border" href="{{ route('vehicles.create') }}" data-placement="top"
-                            title="Editar Funcionáro">
-                            Criar Novo Veículo
-                        </a>
-
-                        <a class="btn btn-warning mx-1" href="#">Veículos Apagados</a> --}}
+                        <a class="btn btn-secondary" href="{{ route('vehicles.index') }}">Voltar Atrás</a>
                     </div>
 
                 </div>
@@ -29,7 +24,7 @@
                             <th scope="col">Marca</th>
                             <th scope="col">Modelo</th>
                             <th scope="col">Matrícula</th>
-                            <th scope="col">Ver Mais</th>
+                            <th scope="col">Mais Opções</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,30 +36,14 @@
                                 <td>{{ $veiculo->matricula }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('vehicles.edit', $veiculo->id) }}" data-placement="top"
-                                            title="Editar Veículo">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        <a type="button" class="btn btn-success" href="{{ route('vehicles.restore', $veiculo->id) }}">Restaurar</a>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Veículo" data-bs-toggle="modal"
-                                            data-bs-target="#deleteVehicle">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                        <div class="modal fade" id="deleteVehicle" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteVehicle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Vehicles.delete')
-                                            </div>
-                                        </div>
-
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('vehicles.show', $veiculo->id) }}" data-placement="top"
-                                            title="Ver Mais Detalhes">
-                                            <i class="far fa-eye"></i>
-                                        </a> --}}
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                        
+                                            <button class="btn btn-danger">Eliminar Permanentemente</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

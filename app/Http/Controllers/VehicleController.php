@@ -96,7 +96,11 @@ class VehicleController extends Controller
 
     public function restore($id)
     {
-        
+        $veiculo = Veiculo::onlyTrashed()->findOrFail($id);
+
+        $veiculo->restore();
+
+        return redirect()->back();
     }
 
     public function forceDelete($id)

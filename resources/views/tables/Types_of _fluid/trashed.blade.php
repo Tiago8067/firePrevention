@@ -6,15 +6,11 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Todos os Tipos de Fluídos</h4>
+                        <h4>Todos os Tipos de Fluídos <strong>Apagados</strong></h4>
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        {{-- <a class="btn btn-success mx-1 border" href="{{ route('fluids.create') }}" data-placement="top">
-                            Criar Novo Tipo de Fluído
-                        </a>
-
-                        <a class="btn btn-warning mx-1" href="#">Tipos de Fluídos Apagados</a> --}}
+                        <a class="btn btn-secondary" href="{{ route('fluids.index') }}">Voltar Atrás</a>
                     </div>
 
                 </div>
@@ -38,30 +34,15 @@
                                 <td>{{ $fluid->created_at }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('fluids.edit', $fluid->id) }}" data-placement="top"
-                                            title="Editar Tipo de Fluído">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        <a type="button" class="btn btn-success"
+                                            href="{{ route('fluids.restore', $fluid->id) }}">Restaurar</a>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Tipo de Fluído" data-bs-toggle="modal"
-                                            data-bs-target="#deleteFluid">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                        <div class="modal fade" id="deleteFluid" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteFluid"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Types_of _fluid.delete')
-                                            </div>
-                                        </div>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('DELETE')
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('fluids.show', $fluid->id) }}" data-placement="top"
-                                            title="Ver Mais Detalhes">
-                                            <i class="far fa-eye"></i>
-                                        </a> --}}
+                                            <button class="btn btn-danger">Eliminar Permanentemente</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

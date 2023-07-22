@@ -6,15 +6,11 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Todos os Funcionários</h4>
+                        <h4>Todos os Funcionários <strong>Apagados</strong></h4>
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        {{-- <a class="btn btn-success mx-1 border" href="{{ route('users.create') }}" data-placement="top">
-                            Criar Novo Funcionário
-                        </a>
-
-                        <a class="btn btn-warning mx-1" href="#">Funcionários Apagados</a> --}}
+                        <a class="btn btn-secondary" href="{{ route('users.index') }}">Voltar Atrás</a>
                     </div>
 
                 </div>
@@ -38,30 +34,15 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('users.edit', $user->id) }}" data-placement="top"
-                                            title="Editar Funcionáro">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        <a type="button" class="btn btn-success"
+                                            href="{{ route('users.restore', $user->id) }}">Restaurar</a>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Funcionáro" data-bs-toggle="modal"
-                                            data-bs-target="#deleteUser">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                        <div class="modal fade" id="deleteUser" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteUser"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Employees.delete')
-                                            </div>
-                                        </div>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('DELETE')
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('users.show', $user->id) }}" data-placement="top"
-                                            title="Ver Mais Detalhes">
-                                            <i class="far fa-eye"></i>
-                                        </a> --}}
+                                            <button class="btn btn-danger">Eliminar Permanentemente</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
