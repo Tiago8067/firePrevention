@@ -13,7 +13,8 @@ class FluidController extends Controller
      */
     public function index()
     {
-        $fluids = TipoFluido::all();
+        //$fluids = TipoFluido::all();
+        $fluids = TipoFluido::paginate(4);
         return view('tables.Types_of _fluid.index', compact('fluids'));
     }
 

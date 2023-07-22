@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="main-content mt-5 mb-5">
+    <div class="main-content mt-4 mb-4">
         <div class="card">
             <div class="card-header">
                 <div class="row">
@@ -82,6 +82,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $veiculos->links() }}
             </div>
         </div>
     </div>

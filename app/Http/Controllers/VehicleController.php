@@ -15,7 +15,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $veiculos = Veiculo::all();   
+        //$veiculos = Veiculo::all();
+        $veiculos = Veiculo::paginate(4);
         return view('tables.Vehicles.index', compact('veiculos'));
     }
 
