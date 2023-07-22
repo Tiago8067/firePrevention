@@ -36,12 +36,13 @@
                                 <td>{{ $veiculo->matricula }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a type="button" class="btn btn-success" href="{{ route('vehicles.restore', $veiculo->id) }}">Restaurar</a>
+                                        <a type="button" class="btn btn-success"
+                                            href="{{ route('vehicles.restore', $veiculo->id) }}">Restaurar</a>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('vehicles.force_delete', $veiculo->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                        
+
                                             <button class="btn btn-danger">Eliminar Permanentemente</button>
                                         </form>
                                     </div>

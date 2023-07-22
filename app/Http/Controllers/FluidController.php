@@ -101,6 +101,10 @@ class FluidController extends Controller
 
     public function forceDelete($id)
     {
-        
+        $fluid = TipoFluido::onlyTrashed()->findOrFail($id);
+
+        $fluid->forceDelete();
+
+        return redirect()->back();
     }
 }

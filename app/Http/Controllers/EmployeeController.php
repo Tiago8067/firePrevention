@@ -108,6 +108,10 @@ class EmployeeController extends Controller
 
     public function forceDelete($id)
     {
-        
+        $user = User::onlyTrashed()->findOrFail($id);
+
+        $user->forceDelete();
+
+        return redirect()->back();
     }
 }

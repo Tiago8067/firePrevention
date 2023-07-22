@@ -29,13 +29,16 @@ Route::post('/admin/login', [AuthController::class, 'handleLogin'])->name('handl
 Route::get('/home', [HomeController::class, 'index'])->name('index.home');
 
 Route::get('/tables/users/trash', [EmployeeController::class, 'trashed'])->name('users.trashed');
-Route::get('tables/users/{id}/restore', [EmployeeController::class, 'restore'])->name('users.restore');
+Route::get('/tables/users/{id}/restore', [EmployeeController::class, 'restore'])->name('users.restore');
+Route::delete('/tables/users/{id}/force_delete', [EmployeeController::class, 'forceDelete'])->name('users.force_delete');
 Route::resource('/tables/users', EmployeeController::class);
 
 Route::get('/tables/vehicles/trash', [VehicleController::class, 'trashed'])->name('vehicles.trashed');
-Route::get('tables/vehicles/{id}/restore', [VehicleController::class, 'restore'])->name('vehicles.restore');
+Route::get('/tables/vehicles/{id}/restore', [VehicleController::class, 'restore'])->name('vehicles.restore');
+Route::delete('/tables/vehicles/{id}/force_delete', [VehicleController::class, 'forceDelete'])->name('vehicles.force_delete');
 Route::resource('/tables/vehicles', VehicleController::class);
 
 Route::get('/tables/fluids/trash', [FluidController::class, 'trashed'])->name('fluids.trashed');
-Route::get('tables/fluids/{id}/restore', [FluidController::class, 'restore'])->name('fluids.restore');
+Route::get('/tables/fluids/{id}/restore', [FluidController::class, 'restore'])->name('fluids.restore');
+Route::delete('/tables/fluids/{id}/force_delete', [FluidController::class, 'forceDelete'])->name('fluids.force_delete');
 Route::resource('/tables/fluids', FluidController::class);

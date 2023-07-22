@@ -37,7 +37,7 @@
                                         <a type="button" class="btn btn-success"
                                             href="{{ route('users.restore', $user->id) }}">Restaurar</a>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('users.force_delete', $user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

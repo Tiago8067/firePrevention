@@ -37,7 +37,7 @@
                                         <a type="button" class="btn btn-success"
                                             href="{{ route('fluids.restore', $fluid->id) }}">Restaurar</a>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('fluids.force_delete', $fluid->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

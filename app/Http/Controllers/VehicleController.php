@@ -105,6 +105,10 @@ class VehicleController extends Controller
 
     public function forceDelete($id)
     {
-        
+        $veiculo = Veiculo::onlyTrashed()->findOrFail($id);
+
+        $veiculo->forceDelete();
+
+        return redirect()->back();
     }
 }
