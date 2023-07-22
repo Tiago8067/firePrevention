@@ -3,7 +3,7 @@
 @section('contentEditFluid')
     <div class="modal-content mt-5">
         <div class="modal-header">
-            <h5 class="modal-title fs-3" id="staticBackdropLabel">Atualizar Tipo de Fluído</h5>
+            <h5 class="modal-title fs-3" id="staticBackdropLabel">Atualizar Tipo de Fluído Número {{ $fluid->id }}</h5>
         </div>
         <div class="modal-body">
             <form action="{{ route('fluids.update', $fluid->id) }}" method="POST">
@@ -24,7 +24,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar Atrás</button>
+                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar Atrás</button> --}}
+                    <a class="btn btn-secondary" href="{{ route('fluids.index') }}">Voltar Atrás</a>
                     <button type="submit" class="btn btn-success">Atualizar Tipo de Fluído</button>
                 </div>
             </form>

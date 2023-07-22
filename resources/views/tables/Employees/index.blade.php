@@ -12,7 +12,7 @@
                     <div class="col-md-6 d-flex justify-content-end">
                         {{-- <a class="btn btn-success mx-1" data-toggle="modal" data-target="#createUser">Criar Novo Funcionário</a> --}}
 
-                        <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
+                        {{-- <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
                             data-bs-target="#createUser">Criar
                             Novo Funcionário</button>
                         <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -20,7 +20,10 @@
                             <div class="modal-dialog">
                                 @include('tables.Employees.create')
                             </div>
-                        </div>
+                        </div> --}}
+                        <a class="btn btn-success mx-1 border" href="{{ route('users.create') }}" data-placement="top">
+                            Criar Novo Funcionário
+                        </a>
 
                         <a class="btn btn-warning mx-1" href="#">Funcionários Apagados</a>
                     </div>

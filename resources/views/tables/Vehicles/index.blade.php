@@ -12,7 +12,7 @@
                     <div class="col-md-6 d-flex justify-content-end">
                         {{-- <a class="btn btn-success mx-1" data-toggle="modal" data-target="#createUser">Criar Novo Funcionário</a> --}}
 
-                        <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
+                        {{-- <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
                             data-bs-target="#createUser">Criar
                             Novo Veículo</button>
                         <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -20,7 +20,11 @@
                             <div class="modal-dialog">
                                 @include('tables.Vehicles.create')
                             </div>
-                        </div>
+                        </div> --}}
+                        <a class="btn btn-success mx-1 border" href="{{ route('vehicles.create') }}" data-placement="top"
+                            title="Editar Funcionáro">
+                            Criar Novo Veículo
+                        </a>
 
                         <a class="btn btn-warning mx-1" href="#">Veículos Apagados</a>
                     </div>

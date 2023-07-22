@@ -1,16 +1,17 @@
 @extends('layouts.master')
 
 @section('contentShowFluid')
-    <div class="main-content mt-5 mb-5">
+    <div class="modal-content mt-5 mb-5">
+        {{-- <div class="main-content mt-5 mb-5"> --}}
         <div class="card">
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Tipo de Fluído Número {{ $fluid->id }}</h4>
+                        <h3>Tipo de Fluído Número {{ $fluid->id }}</h3>
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a class="btn btn-secondary" href="">Voltar Atrás</a>
+                        <a class="btn btn-secondary" href="{{ route('fluids.index') }}">Voltar Atrás</a>
                     </div>
 
                 </div>

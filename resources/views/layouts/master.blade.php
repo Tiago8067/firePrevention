@@ -24,10 +24,16 @@
 
     <div class="container">
         @yield('content')
+
+        @yield('contentCreate')
         @yield('contentShow')
         @yield('contentEdit')
+
+        @yield('contentCreateVehicle')
         @yield('contentShowVehicle')
         @yield('contentEditVehicle')
+
+        @yield('contentCreateFluid')
         @yield('contentShowFluid')
         @yield('contentEditFluid')
     </div>

@@ -22,7 +22,7 @@ class FluidController extends Controller
      */
     public function create()
     {
-        //
+        return view('tables.Types_of _fluid.create');
     }
 
     /**

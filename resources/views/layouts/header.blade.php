@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item active" href="{{ route('index.home') }}">
+                            <a class="dropdown-item" href="{{ route('index.home') }}">
                                 <i class="fas fa-chart-line"></i>
                                 Gráficos
                             </a>
@@ -67,7 +67,7 @@
         </div>
         <ul class="navbar-nav ml-auto order-1 order-md-3 navbar-no-expand me-5">
             <li>
-                <a class="btn btn-default btn-flat float-reght btn-block" href="#">
+                <a class="btn btn-default btn-flat float-reght btn-block" href="{{ route('index') }}">
                     <i class="fa fa-fw fa-power-off text-red"></i>
                     Sair
                 </a>

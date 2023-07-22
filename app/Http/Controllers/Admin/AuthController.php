@@ -32,4 +32,9 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Invalid credentials');
         }
     }
+
+    /* public function handleLogout()
+    {
+        return redirect()->route('index');
+    } */
 }
