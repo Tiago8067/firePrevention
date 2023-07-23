@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">
+                    <a class="nav-link" aria-current="page" href="{{ route('interventions.index') }}">
                         <i class="far fa-fw fa-clipboard"></i>
                         Intervenções
                     </a>

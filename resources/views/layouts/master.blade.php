@@ -42,6 +42,11 @@
         @yield('contentEditFluid')
         @yield('contentDeleteFluid')
         @yield('contentTrashFluid')
+
+        @yield('contentCreateIntervention')
+        @yield('contentShowIntervention')
+        @yield('contentEditIntervention')
+        @yield('contentTrashIntervention')
     </div>
 
 

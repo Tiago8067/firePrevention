@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -12,7 +13,8 @@ class InterventionController extends Controller
      */
     public function index()
     {
-        //
+        $interventions = Intervention::paginate(4);
+        return view('tables.Interventions.index', compact('interventions'));
     }
 
     /**
@@ -20,7 +22,7 @@ class InterventionController extends Controller
      */
     public function create()
     {
-        //
+        return view('tables.Interventions.create');
     }
 
     /**
@@ -34,15 +36,15 @@ class InterventionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        return 'mostrar interventions';
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
     }
@@ -50,7 +52,7 @@ class InterventionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -58,7 +60,7 @@ class InterventionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
     }

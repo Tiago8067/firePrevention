@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\FluidController;
+use App\Http\Controllers\InterventionController;
 use App\Http\Controllers\VehicleController;
 
 /*
@@ -42,3 +43,5 @@ Route::get('/tables/fluids/trash', [FluidController::class, 'trashed'])->name('f
 Route::get('/tables/fluids/{id}/restore', [FluidController::class, 'restore'])->name('fluids.restore');
 Route::delete('/tables/fluids/{id}/force_delete', [FluidController::class, 'forceDelete'])->name('fluids.force_delete');
 Route::resource('/tables/fluids', FluidController::class);
+
+Route::resource('/tables/interventions', InterventionController::class);
