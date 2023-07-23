@@ -25,14 +25,14 @@ return new class extends Migration
             /* $table->boolean('persao_permanente', 10, 3); */
             $table->boolean('persao_permanente');
             $table->string('nome_fabricante');
-            $table->year('ano_fabrico');
+            $table->date('ano_fabrico');
             $table->boolean('marcacao_CE')->default(true);
             $table->text('localizacao');
             $table->date('data_ultimo_carregamento');
             $table->date('data_ultima_prova_hidraulica');
             $table->boolean('manutencao_MNT');
             $table->boolean('carregamento_MNT_AD');
-            // $table->string('tipo');
+            $table->string('tipo');
             // $table->float('peso_CO2_kg', 10, 3);
             $table->float('peso_CO2_kg');
             $table->boolean('prova_hidraulica');
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->boolean('rotulo');
             $table->boolean('sparklets_CO2');
             $table->boolean('aprovado');
-            $table->string('serv_carga');
+            $table->boolean('servico');
             $table->boolean('extintor_novo');
             $table->text('motivo_rejeitado');
             /**
