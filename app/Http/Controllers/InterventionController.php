@@ -73,7 +73,8 @@ class InterventionController extends Controller
      */
     public function show($id)
     {
-        return 'mostrar interventions';
+        $intervention = Intervention::findOrFail($id);
+        return view('tables.Interventions.show', compact('intervention'));
     }
 
     /**
@@ -81,7 +82,7 @@ class InterventionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'editar intervençao';
     }
 
     /**

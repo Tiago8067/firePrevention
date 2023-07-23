@@ -38,23 +38,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($interventions as $intervention) --}}
+                        @foreach ($interventions as $intervention)
                             <tr class="text-center">
-                                <td>ID</td>
-                                <td>ID da Fatura</td>
+                                <td>{{ $intervention->id }}</td>
                                 <td>Técnico</td>
-                                <td>Nome Cliente</td>
-                                <td>Nome de Fábrica</td>
-                                <td>Número de Série</td>
-                                <td>Feito em</td>
-                                <td>Aprovado</td>
-                                <td>Novo</td>
-                                <td>Data</td>
+                                <td>ID da Fatura</td>
+                                <td>{{ $intervention->nome_cliente }}</td>
+                                <td>{{ $intervention->nome_fabricante }}</td>
+                                <td>{{ $intervention->nr_serie }}</td>
+                                <td>{{ $intervention->viatura_ou_loja }}</td>
+                                <td>
+                                    @if ($intervention->aprovado == 1)
+                                        Sim
+                                    @else
+                                        Não
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($intervention->extintor_novo == 1)
+                                        Sim
+                                    @else
+                                        Não
+                                    @endif
+                                </td>
+                                <td>{{ $intervention->data_servico }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
                                         <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{-- {{ route('interventions.edit', $intervention->id) }} --}}" data-placement="top"
-                                            title="Editar Intervenção">
+                                            href="{{ route('interventions.edit', $intervention->id) }}" data-placement="top" title="Editar Intervenção">
                                             <i class="far fa-edit"></i>
                                         </a>
 
@@ -68,14 +79,13 @@
                                         </form>
 
                                         <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{-- {{ route('interventions.show', $intervention->id) }} --}}" data-placement="top"
-                                            title="Ver Mais Detalhes">
+                                            href="{{ route('interventions.show', $intervention->id) }}" data-placement="top" title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
                                         </a>
                                     </div>
                                 </td>
                             </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
                 {{ $interventions->links() }}
