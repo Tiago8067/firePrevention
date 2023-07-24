@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Intervention;
+use App\Models\TipoFluido;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -22,7 +23,8 @@ class InterventionController extends Controller
      */
     public function create()
     {
-        return view('tables.Interventions.create');
+        $tiposFluidos = TipoFluido::all();
+        return view('tables.Interventions.create', compact('tiposFluidos'));
     }
 
     /**
@@ -62,6 +64,7 @@ class InterventionController extends Controller
         $intervention->motivo_rejeitado = $request->motivo_rejeitado;
         $intervention->observacao = $request->observacao;
         $intervention->tipo = $request->tipo;
+        $intervention->tipo_fluidos_id = $request->tiposFluidosId;
 
         $intervention->save();
 
@@ -83,7 +86,8 @@ class InterventionController extends Controller
     public function edit($id)
     {
         $intervention = Intervention::findOrFail($id);
-        return view('tables.Interventions.edit', compact('intervention'));
+        $tiposFluidos = TipoFluido::all();
+        return view('tables.Interventions.edit', compact('intervention', 'tiposFluidos'));
     }
 
     /**
@@ -123,6 +127,7 @@ class InterventionController extends Controller
         $intervention->motivo_rejeitado = $request->motivo_rejeitado;
         $intervention->observacao = $request->observacao;
         $intervention->tipo = $request->tipo;
+        $intervention->tipo_fluidos_id = $request->tiposFluidosId;
 
         $intervention->save();
 

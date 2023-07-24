@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Intervention extends Model
 {
     use HasFactory;
+
+    public function tipoFluido()
+    {
+        return $this->belongsTo(TipoFluido::class, 'tipo_fluidos_id');
+    }
 }

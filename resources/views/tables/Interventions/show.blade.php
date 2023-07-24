@@ -49,7 +49,7 @@
                         </tr>
                         <tr>
                             <td>Tipo de Fluido</td>
-                            <td></td>
+                            <td>{{ $intervention->tipoFluido->nome }}</td>
                         </tr>
                         <tr>
                             <td>Capacidade em (kg)</td>
@@ -251,7 +251,7 @@
             </div>
 
             <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
-                <a type="button" class="btn btn-success" href="">Editar</a>
+                <a type="button" class="btn btn-success" href="{{ route('interventions.edit', $intervention->id) }}">Editar</a>
 
                 <form action="" method="POST">
                     @csrf

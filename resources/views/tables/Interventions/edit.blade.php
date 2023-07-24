@@ -71,11 +71,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-form-label" for="">Tipo de Agente Extintor</label>
-                            <select name="" id="" class="form-control">
+                            <label class="col-form-label" for="tiposFluidosId">Tipo de Agente Extintor</label>
+                            <select name="tiposFluidosId" id="tiposFluidosId" class="form-control">
                                 <option value="">Escolher Tipo de Fluído</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
+                                @foreach ($tiposFluidos as $tiposFluido)
+                                    <option {{ $tiposFluido->id == $intervention->tipo_fluidos_id ? 'selected' : '' }}
+                                        value="{{ $tiposFluido->id }}">{{ $tiposFluido->nome }}</option>
+                                @endforeach
                             </select>
                         </div>
 
