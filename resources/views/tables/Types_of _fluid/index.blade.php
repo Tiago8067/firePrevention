@@ -48,32 +48,39 @@
                                 <td>{{ $fluid->created_at }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-success btn-icon animated-hover"
-                                            href="{{ route('fluids.edit', $fluid->id) }}" data-placement="top"
-                                            title="Editar Tipo de Fluído">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        @if ($fluid->intervention != '')
+                                            <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                                href="{{ route('fluids.edit', $fluid->id) }}" data-placement="top"
+                                                title="Editar Tipo de Fluído" style="pointer-events: none;">
+                                                <i class="far fa-edit"></i>
+                                            </a>
 
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Tipo de Fluído" data-bs-toggle="modal"
-                                            data-bs-target="#deleteFluid">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                        <div class="modal fade" id="deleteFluid" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteFluid"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Types_of _fluid.delete')
-                                            </div>
-                                        </div> --}}
-                                        <form action="{{ route('fluids.destroy', $fluid->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
+                                            <form action="{{ route('fluids.destroy', $fluid->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
 
-                                            <button
-                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
-                                                title="Eliminar Tipo de Fluído"><i class="far fa-trash-alt"></i></button>
-                                        </form>
+                                                <button
+                                                    class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Tipo de Fluído" style="pointer-events: none;"><i
+                                                        class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        @else
+                                            <a class="btn btn-outline-success btn-icon animated-hover"
+                                                href="{{ route('fluids.edit', $fluid->id) }}" data-placement="top"
+                                                title="Editar Tipo de Fluído">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            <form action="{{ route('fluids.destroy', $fluid->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Tipo de Fluído"><i
+                                                        class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        @endif
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('fluids.show', $fluid->id) }}" data-placement="top"

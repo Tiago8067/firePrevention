@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class TipoFluido extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function intervention()
+    {
+        return $this->hasOne(Intervention::class, 'tipo_fluidos_id');
+    }
 }
