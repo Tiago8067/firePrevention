@@ -245,7 +245,16 @@
                         </tr>
                         <tr>
                             <td>ID da Fatura</td>
-                            <td></td>
+                            <td>
+                                @if ($intervention->faturas_id == 0)
+                                    <a type="button" class="btn btn-info"
+                                        href="{{ route('interventions.create_invoice', $intervention->id) }}">
+                                        <i class="far fa-file-alt"> Criar Fatura</i>
+                                    </a>
+                                @else
+                                    {{ $intervention->faturas_id }}
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <td>Observações</td>
