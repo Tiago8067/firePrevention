@@ -70,8 +70,9 @@
                                 <td>{{ $intervention->data_servico }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-primary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Gerar Relatótio PDF">
+                                        <a class="btn btn-outline-primary btn-icon animated-hover"
+                                            href="{{ route('interventions.pdf_generator', $intervention->id) }}" data-placement="top"
+                                            title="Gerar Relatótio PDF">
                                             <i class="far fa-file-pdf"></i>
                                         </a>
 
@@ -81,28 +82,47 @@
                                                 data-placement="top" title="Criar Fatura">
                                                 <i class="far fa-file-alt"></i>
                                             </a>
+
+                                            <a class="btn btn-outline-success btn-icon animated-hover"
+                                                href="{{ route('interventions.edit', $intervention->id) }}"
+                                                data-placement="top" title="Editar Intervenção">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            <form action="{{-- {{ route('interventions.destroy', $intervention->id) }} --}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Intervenção"><i class="far fa-trash-alt"></i></button>
+                                            </form>
                                         @else
                                             <a class="btn btn-outline-danger btn-icon animated-hover"
                                                 href="{{ route('interventions.faturaPdf_generator', $intervention->id) }}"
                                                 data-placement="top" title="Download Fatura">
                                                 <i class="fas fa-file-download"></i>
                                             </a>
+
+                                            <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                                href="{{ route('interventions.edit', $intervention->id) }}"
+                                                data-placement="top" title="Editar Intervenção"
+                                                style="pointer-events: none;">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            {{-- secundary --}}
+
+                                            <form action="{{-- {{ route('interventions.destroy', $intervention->id) }} --}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Intervenção" style="pointer-events: none;"><i
+                                                        class="far fa-trash-alt"></i></button>
+                                            </form>
                                         @endif
-
-                                        <a class="btn btn-outline-success btn-icon animated-hover"
-                                            href="{{ route('interventions.edit', $intervention->id) }}"
-                                            data-placement="top" title="Editar Intervenção">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-
-                                        <form action="{{-- {{ route('interventions.destroy', $intervention->id) }} --}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button
-                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
-                                                title="Eliminar Intervenção"><i class="far fa-trash-alt"></i></button>
-                                        </form>
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('interventions.show', $intervention->id) }}"

@@ -50,13 +50,46 @@
                                 <td>{{ $veiculo->marca }}</td>
                                 <td>{{ $veiculo->modelo }}</td>
                                 <td>{{ $veiculo->matricula }}</td>
+                                {{-- <td>
+                                    {{ $veiculo->intervention }}
+                                    @if ($veiculo->intervention->veiculos_id == null)
+                                        nao tem
+                                    @endif
+                                </td> --}}
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-success btn-icon animated-hover"
-                                            href="{{ route('vehicles.edit', $veiculo->id) }}" data-placement="top"
-                                            title="Editar Veículo">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        @if ($veiculo->intervention != '')
+                                            <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                                href="{{ route('vehicles.edit', $veiculo->id) }}" data-placement="top"
+                                                title="Editar Veículo" style="pointer-events: none;">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            <form action="{{ route('vehicles.destroy', $veiculo->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Veículo" style="pointer-events: none;"><i
+                                                        class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        @else
+                                            <a class="btn btn-outline-success btn-icon animated-hover"
+                                                href="{{ route('vehicles.edit', $veiculo->id) }}" data-placement="top"
+                                                title="Editar Veículo">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            <form action="{{ route('vehicles.destroy', $veiculo->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Veículo"><i class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        @endif
 
                                         {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
                                             data-placement="top" title="Eliminar Veículo" data-bs-toggle="modal"
@@ -70,14 +103,6 @@
                                                 @include('tables.Vehicles.delete')
                                             </div>
                                         </div> --}}
-                                        <form action="{{ route('vehicles.destroy', $veiculo->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button
-                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
-                                                title="Eliminar Veículo"><i class="far fa-trash-alt"></i></button>
-                                        </form>
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('vehicles.show', $veiculo->id) }}" data-placement="top"
