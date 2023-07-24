@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('contentEditIntervention')
-    <div class="modal-content mt-5">
+    <div class="modal-content mt-5 mb-5">
         <div class="modal-header">
             <h5 class="modal-title fs-3" id="staticBackdropLabel">Atualizar Intervenção Número {{ $intervention->id }}</h5>
         </div>

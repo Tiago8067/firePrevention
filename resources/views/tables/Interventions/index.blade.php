@@ -64,6 +64,21 @@
                                 <td>{{ $intervention->data_servico }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
+                                        <a class="btn btn-outline-primary btn-icon animated-hover"
+                                            href="" data-placement="top" title="Editar Intervenção">
+                                            <i class="far fa-file-pdf"></i>
+                                        </a>
+
+                                        <a class="btn btn-outline-danger btn-icon animated-hover"
+                                            href="" data-placement="top" title="Editar Intervenção">
+                                            <i class="far fa-file-alt"></i>
+                                        </a>
+
+                                        <a class="btn btn-outline-danger btn-icon animated-hover"
+                                            href="" data-placement="top" title="Editar Intervenção">
+                                            <i class="fas fa-file-download"></i>
+                                        </a>
+
                                         <a class="btn btn-outline-success btn-icon animated-hover"
                                             href="{{ route('interventions.edit', $intervention->id) }}" data-placement="top" title="Editar Intervenção">
                                             <i class="far fa-edit"></i>
