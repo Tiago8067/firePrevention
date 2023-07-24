@@ -33,7 +33,13 @@
                         </tr>
                         <tr>
                             <td>ID do Carro</td>
-                            <td></td>
+                            @if (
+                                $intervention->veiculos_id == 0)
+                                <td>Avaliação realizada em loja</td>
+                            @else
+                                <td>{{ $intervention->veiculo->marca }}-{{ $intervention->veiculo->modelo }}-{{ $intervention->veiculo->matricula }}
+                                </td>
+                            @endif
                         </tr>
                         <tr>
                             <td>Técnico</td>
@@ -251,7 +257,8 @@
             </div>
 
             <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
-                <a type="button" class="btn btn-success" href="{{ route('interventions.edit', $intervention->id) }}">Editar</a>
+                <a type="button" class="btn btn-success"
+                    href="{{ route('interventions.edit', $intervention->id) }}">Editar</a>
 
                 <form action="" method="POST">
                     @csrf

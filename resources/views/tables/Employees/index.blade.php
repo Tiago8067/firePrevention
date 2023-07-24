@@ -76,7 +76,7 @@
                                                 @include('tables.Employees.edit')
                                             </div>
                                         </div> --}}
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        <a class="btn btn-outline-success btn-icon animated-hover"
                                             href="{{ route('users.edit', $user->id) }}" data-placement="top"
                                             title="Editar Funcionáro">
                                             <i class="far fa-edit"></i>
@@ -87,7 +87,7 @@
                                             @method('DELETE')
 
                                             <button
-                                                class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
                                                 title="Eliminar Funcionáro"><i class="far fa-trash-alt"></i></button>
                                         </form>
                                         {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
@@ -118,7 +118,7 @@
                                             <i class="far fa-trash-alt"></i>
                                         </a> --}}
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('users.show', $user->id) }}" data-placement="top"
                                             title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>

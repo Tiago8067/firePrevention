@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Intervention;
 use App\Models\TipoFluido;
+use App\Models\Veiculo;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -24,7 +25,8 @@ class InterventionController extends Controller
     public function create()
     {
         $tiposFluidos = TipoFluido::all();
-        return view('tables.Interventions.create', compact('tiposFluidos'));
+        $veiculos = Veiculo::all();
+        return view('tables.Interventions.create', compact('tiposFluidos', 'veiculos'));
     }
 
     /**
@@ -65,6 +67,12 @@ class InterventionController extends Controller
         $intervention->observacao = $request->observacao;
         $intervention->tipo = $request->tipo;
         $intervention->tipo_fluidos_id = $request->tiposFluidosId;
+        if ($request->viatura_ou_loja == 'Cliente') {
+            $intervention->veiculos_id = $request->veiculosId;
+        } else {
+            $intervention->veiculos_id = 0;
+        }
+        
 
         $intervention->save();
 
@@ -87,7 +95,8 @@ class InterventionController extends Controller
     {
         $intervention = Intervention::findOrFail($id);
         $tiposFluidos = TipoFluido::all();
-        return view('tables.Interventions.edit', compact('intervention', 'tiposFluidos'));
+        $veiculos = Veiculo::all();
+        return view('tables.Interventions.edit', compact('intervention', 'tiposFluidos', 'veiculos'));
     }
 
     /**
@@ -128,6 +137,11 @@ class InterventionController extends Controller
         $intervention->observacao = $request->observacao;
         $intervention->tipo = $request->tipo;
         $intervention->tipo_fluidos_id = $request->tiposFluidosId;
+        if ($request->viatura_ou_loja == 'Cliente') {
+            $intervention->veiculos_id = $request->veiculosId;
+        } else {
+            $intervention->veiculos_id = 0;
+        }
 
         $intervention->save();
 

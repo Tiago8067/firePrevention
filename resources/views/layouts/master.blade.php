@@ -49,6 +49,27 @@
         @yield('contentTrashIntervention')
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const veiculoForm = document.getElementById('veiculo_dropdown');
+            const veiculoIdSelect = document.getElementById('veiculosId');
+            const loja = document.getElementById('viatura_ou_loja_loja');
+            const cliente = document.getElementById('viatura_ou_loja_cliente');
+
+            veiculoForm.style.display = 'none';
+
+            cliente.addEventListener('click', function () {
+                veiculoForm.style.display = 'block';
+                veiculoIdSelect.required = true;
+            });
+
+            loja.addEventListener('click', function () {
+                veiculoForm.style.display = 'none';
+                veiculoIdSelect.required = false;
+                veiculoIdSelect.value = ""; 
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>

@@ -17,18 +17,28 @@
                                 <div class="col-sm-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="viatura_ou_loja"
-                                            value="Loja">
-                                        <label class="form-check-label" for="viatura_ou_loja">Loja</label>
+                                            value="Loja" id="viatura_ou_loja_loja">
+                                        <label class="form-check-label" for="viatura_ou_loja_loja">Loja</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="viatura_ou_loja"
-                                            value="Cliente">
-                                        <label class="form-check-label" for="viatura_ou_loja">Cliente</label>
+                                            value="Cliente" id="viatura_ou_loja_cliente">
+                                        <label class="form-check-label" for="viatura_ou_loja_cliente">Cliente</label>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="form-group" id="veiculo_dropdown">
+                            <label class="col-form-label" for="veiculosId">Escolha o veículo utilizado</label>
+                            <select name="veiculosId" id="veiculosId" class="form-control">
+                                <option value="">Escolher matrícula</option>
+                                @foreach ($veiculos as $veiculo)
+                                    <option value="{{ $veiculo->id }}">{{ $veiculo->marca }}-{{ $veiculo->matricula }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">

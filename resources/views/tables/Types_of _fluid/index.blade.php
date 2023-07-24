@@ -48,7 +48,7 @@
                                 <td>{{ $fluid->created_at }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        <a class="btn btn-outline-success btn-icon animated-hover"
                                             href="{{ route('fluids.edit', $fluid->id) }}" data-placement="top"
                                             title="Editar Tipo de Fluído">
                                             <i class="far fa-edit"></i>
@@ -71,11 +71,11 @@
                                             @method('DELETE')
 
                                             <button
-                                                class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
                                                 title="Eliminar Tipo de Fluído"><i class="far fa-trash-alt"></i></button>
                                         </form>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('fluids.show', $fluid->id) }}" data-placement="top"
                                             title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>

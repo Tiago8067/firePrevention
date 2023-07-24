@@ -13,4 +13,9 @@ class Intervention extends Model
     {
         return $this->belongsTo(TipoFluido::class, 'tipo_fluidos_id');
     }
+
+    public function veiculo()
+    {
+        return $this->belongsTo(Veiculo::class, 'veiculos_id');
+    }
 }

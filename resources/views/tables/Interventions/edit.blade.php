@@ -18,19 +18,31 @@
                                 <div class="col-sm-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="viatura_ou_loja" value="Loja"
+                                            id="viatura_ou_loja_loja"
                                             {{ $intervention->viatura_ou_loja == 'Loja' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="viatura_ou_loja">Loja</label>
+                                        <label class="form-check-label" for="viatura_ou_loja_loja">Loja</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="viatura_ou_loja"
-                                            value="Cliente"
+                                            value="Cliente" id="viatura_ou_loja_cliente"
                                             {{ $intervention->viatura_ou_loja == 'Cliente' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="viatura_ou_loja">Cliente</label>
+                                        <label class="form-check-label" for="viatura_ou_loja_cliente">Cliente</label>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="form-group" id="veiculo_dropdown">
+                            <label class="col-form-label" for="v">Escolha o veículo utilizado</label>
+                            <select name="veiculosId" id="veiculosId" class="form-control">
+                                <option value="">Escolher matrícula</option>
+                                @foreach ($veiculos as $veiculo)
+                                    <option {{ $veiculo->id == $intervention->veiculos_id ? 'selected' : '' }}
+                                        value="{{ $veiculo->id }}">{{ $veiculo->marca }}-{{ $veiculo->matricula }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">

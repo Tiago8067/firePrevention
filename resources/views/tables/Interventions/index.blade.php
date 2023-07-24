@@ -64,7 +64,7 @@
                                 <td>{{ $intervention->data_servico }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        <a class="btn btn-outline-success btn-icon animated-hover"
                                             href="{{ route('interventions.edit', $intervention->id) }}" data-placement="top" title="Editar Intervenção">
                                             <i class="far fa-edit"></i>
                                         </a>
@@ -74,11 +74,11 @@
                                             @method('DELETE')
 
                                             <button
-                                                class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
                                                 title="Eliminar Intervenção"><i class="far fa-trash-alt"></i></button>
                                         </form>
 
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                        <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('interventions.show', $intervention->id) }}" data-placement="top" title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
                                         </a>
