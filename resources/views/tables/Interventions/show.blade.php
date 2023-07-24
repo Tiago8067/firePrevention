@@ -258,6 +258,15 @@
 
             <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
                 <a type="button" class="btn btn-success"
+                    href="{{ route('interventions.pdf_generator', $intervention->id) }}">
+                    <i class="fas fa-file-pdf"></i>
+                    Download PDF
+                </a>
+
+                    <a type="button" class="btn btn-success"
+                    href="">Download Fatura</a>
+
+                <a type="button" class="btn btn-success"
                     href="{{ route('interventions.edit', $intervention->id) }}">Editar</a>
 
                 <form action="" method="POST">

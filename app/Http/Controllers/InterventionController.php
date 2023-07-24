@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Intervention;
 use App\Models\TipoFluido;
 use App\Models\Veiculo;
+//use Barryvdh\DomPDF\PDF;
+use PDF;
 use Illuminate\Http\Request;
 
 class InterventionController extends Controller
@@ -154,5 +156,18 @@ class InterventionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pdf_generator($id)
+    {
+        // $teste = 'teste';
+        // $pdf = PDF::loadView('tables.Interventions.pdf', compact('teste'));
+
+        $intervention = Intervention::findOrFail($id);
+        $pdf = PDF::loadView('tables.Interventions.pdf', compact('intervention'));
+
+        return $pdf->download('intervencao.pdf');
+
+        //return $pdf->setPaper('a4')->stream('intervencao.pdf');
     }
 }
