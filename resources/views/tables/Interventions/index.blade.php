@@ -42,7 +42,13 @@
                             <tr class="text-center">
                                 <td>{{ $intervention->id }}</td>
                                 <td>Técnico</td>
-                                <td>ID da Fatura</td>
+                                <td>
+                                    @if ($intervention->faturas_id == 0)
+                                        Sem Fatura
+                                    @else
+                                        {{ $intervention->faturas_id }}
+                                    @endif
+                                </td>
                                 <td>{{ $intervention->nome_cliente }}</td>
                                 <td>{{ $intervention->nome_fabricante }}</td>
                                 <td>{{ $intervention->nr_serie }}</td>
@@ -76,15 +82,16 @@
                                                 <i class="far fa-file-alt"></i>
                                             </a>
                                         @else
-                                            <a class="btn btn-outline-danger btn-icon animated-hover" href=""
+                                            <a class="btn btn-outline-danger btn-icon animated-hover"
+                                                href="{{ route('interventions.faturaPdf_generator', $intervention->id) }}"
                                                 data-placement="top" title="Download Fatura">
                                                 <i class="fas fa-file-download"></i>
                                             </a>
                                         @endif
 
                                         <a class="btn btn-outline-success btn-icon animated-hover"
-                                            href="{{ route('interventions.edit', $intervention->id) }}" data-placement="top"
-                                            title="Editar Intervenção">
+                                            href="{{ route('interventions.edit', $intervention->id) }}"
+                                            data-placement="top" title="Editar Intervenção">
                                             <i class="far fa-edit"></i>
                                         </a>
 
@@ -98,8 +105,8 @@
                                         </form>
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
-                                            href="{{ route('interventions.show', $intervention->id) }}" data-placement="top"
-                                            title="Ver Mais Detalhes">
+                                            href="{{ route('interventions.show', $intervention->id) }}"
+                                            data-placement="top" title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
                                         </a>
                                     </div>

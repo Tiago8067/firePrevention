@@ -202,4 +202,15 @@ class InterventionController extends Controller
 
         return redirect()->route('interventions.index');
     }
+
+    public function faturaPdf_generator($id)
+    {
+        $intervention = Intervention::findOrFail($id);
+
+        $fatura = Fatura::findOrFail($intervention->faturas_id);
+
+        $pdf = PDF::loadView('tables.Interventions.faturaPdf', compact('intervention', 'fatura'));
+
+        return $pdf->download('fatura.pdf');
+    }
 }

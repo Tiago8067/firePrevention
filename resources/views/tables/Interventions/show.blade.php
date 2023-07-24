@@ -291,7 +291,8 @@
                         Download PDF
                     </a>
 
-                    <a type="button" class="btn btn-success" href="">Download Fatura</a>
+                    <a type="button" class="btn btn-success"
+                        href="{{ route('interventions.faturaPdf_generator', $intervention->id) }}">Download Fatura</a>
 
                     {{-- <button type="button" class="btn btn-success" href="{{ route('interventions.edit', $intervention->id) }}"
                         disabled>Editar</button>

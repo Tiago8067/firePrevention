@@ -47,4 +47,5 @@ Route::resource('/tables/fluids', FluidController::class);
 Route::get('/tables/interventions/{id}/pdf-generator', [InterventionController::class, 'pdf_generator'])->name('interventions.pdf_generator');
 Route::get('/tables/interventions/{id}/create_invoice', [InterventionController::class, 'create_invoice'])->name('interventions.create_invoice');
 Route::post('/tables/interventions/{id}/store_invoice', [InterventionController::class, 'store_invoice'])->name('interventions.store_invoice');
+Route::get('/tables/interventions/{id}/fatura-pdf-generator', [InterventionController::class, 'faturaPdf_generator'])->name('interventions.faturaPdf_generator');
 Route::resource('/tables/interventions', InterventionController::class);
