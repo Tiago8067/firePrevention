@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fatura;
 use App\Models\Intervention;
 use App\Models\TipoFluido;
 use App\Models\Veiculo;
+use Carbon\Carbon;
 //use Barryvdh\DomPDF\PDF;
 use PDF;
 use Illuminate\Http\Request;
@@ -169,5 +171,35 @@ class InterventionController extends Controller
         return $pdf->download('intervencao.pdf');
 
         //return $pdf->setPaper('a4')->stream('intervencao.pdf');
+    }
+
+    public function create_invoice(Request $request, $id)
+    {
+        $intervention = Intervention::findOrFail($id);
+
+        return view('tables.Interventions.createFatura', compact('intervention'));
+    }
+
+    public function store_invoice(Request $request, $id)
+    {
+        $intervention = Intervention::findOrFail($id);
+
+        $fatura = new Fatura();
+        $fatura->data_criacao = date('Y-m-d');
+        $data_expiracao = Carbon::now();
+        $fatura->data_expeiracao = $data_expiracao->addYears(1);
+        $fatura->valor = $request->valor;
+        $fatura->desconto = $request->desconto;
+        $fatura->preco = 10;
+        //$fatura->preco = $request->valor * $request->desconto;
+        $fatura->observacoes = $request->observacaoFatura;
+
+        $fatura->save();
+
+        $intervention->faturas_id = $fatura->id;
+
+        $intervention->save();
+
+        return redirect()->route('interventions.index');
     }
 }

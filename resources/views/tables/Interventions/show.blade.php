@@ -33,8 +33,7 @@
                         </tr>
                         <tr>
                             <td>ID do Carro</td>
-                            @if (
-                                $intervention->veiculos_id == 0)
+                            @if ($intervention->veiculos_id == 0)
                                 <td>Avaliação realizada em loja</td>
                             @else
                                 <td>{{ $intervention->veiculo->marca }}-{{ $intervention->veiculo->modelo }}-{{ $intervention->veiculo->matricula }}
@@ -257,24 +256,45 @@
             </div>
 
             <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
-                <a type="button" class="btn btn-success"
-                    href="{{ route('interventions.pdf_generator', $intervention->id) }}">
-                    <i class="fas fa-file-pdf"></i>
-                    Download PDF
-                </a>
+
+                @if ($intervention->faturas_id == 0)
+                    <a type="button" class="btn btn-success"
+                        href="{{ route('interventions.pdf_generator', $intervention->id) }}">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF
+                    </a>
+
+                    {{-- <button type="button" class="btn btn-success" href="" disabled>Download Fatura</button> --}}
 
                     <a type="button" class="btn btn-success"
-                    href="">Download Fatura</a>
+                        href="{{ route('interventions.edit', $intervention->id) }}">Editar</a>
 
-                <a type="button" class="btn btn-success"
-                    href="{{ route('interventions.edit', $intervention->id) }}">Editar</a>
+                    <form action="" method="POST">
+                        @csrf
+                        @method('DELETE')
 
-                <form action="" method="POST">
-                    @csrf
-                    @method('DELETE')
+                        <button class="btn btn-success">Eliminar</i></button>
+                    </form>
+                @else
+                    <a type="button" class="btn btn-success"
+                        href="{{ route('interventions.pdf_generator', $intervention->id) }}">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF
+                    </a>
 
-                    <button class="btn btn-success">Eliminar</i></button>
-                </form>
+                    <a type="button" class="btn btn-success" href="">Download Fatura</a>
+
+                    {{-- <button type="button" class="btn btn-success" href="{{ route('interventions.edit', $intervention->id) }}"
+                        disabled>Editar</button>
+
+                    <form action="" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button class="btn btn-success" disabled>Eliminar</i></button>
+                    </form> --}}
+                @endif
+
             </div>
 
         </div>

@@ -45,4 +45,6 @@ Route::delete('/tables/fluids/{id}/force_delete', [FluidController::class, 'forc
 Route::resource('/tables/fluids', FluidController::class);
 
 Route::get('/tables/interventions/{id}/pdf-generator', [InterventionController::class, 'pdf_generator'])->name('interventions.pdf_generator');
+Route::get('/tables/interventions/{id}/create_invoice', [InterventionController::class, 'create_invoice'])->name('interventions.create_invoice');
+Route::post('/tables/interventions/{id}/store_invoice', [InterventionController::class, 'store_invoice'])->name('interventions.store_invoice');
 Route::resource('/tables/interventions', InterventionController::class);

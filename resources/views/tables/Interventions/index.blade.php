@@ -64,23 +64,27 @@
                                 <td>{{ $intervention->data_servico }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-primary btn-icon animated-hover"
-                                            href="" data-placement="top" title="Editar Intervenção">
+                                        <a class="btn btn-outline-primary btn-icon animated-hover" href=""
+                                            data-placement="top" title="Gerar Relatótio PDF">
                                             <i class="far fa-file-pdf"></i>
                                         </a>
 
-                                        <a class="btn btn-outline-danger btn-icon animated-hover"
-                                            href="" data-placement="top" title="Editar Intervenção">
-                                            <i class="far fa-file-alt"></i>
-                                        </a>
-
-                                        <a class="btn btn-outline-danger btn-icon animated-hover"
-                                            href="" data-placement="top" title="Editar Intervenção">
-                                            <i class="fas fa-file-download"></i>
-                                        </a>
+                                        @if ($intervention->faturas_id == 0)
+                                            <a class="btn btn-outline-danger btn-icon animated-hover"
+                                                href=" {{ route('interventions.create_invoice', $intervention->id) }}"
+                                                data-placement="top" title="Criar Fatura">
+                                                <i class="far fa-file-alt"></i>
+                                            </a>
+                                        @else
+                                            <a class="btn btn-outline-danger btn-icon animated-hover" href=""
+                                                data-placement="top" title="Download Fatura">
+                                                <i class="fas fa-file-download"></i>
+                                            </a>
+                                        @endif
 
                                         <a class="btn btn-outline-success btn-icon animated-hover"
-                                            href="{{ route('interventions.edit', $intervention->id) }}" data-placement="top" title="Editar Intervenção">
+                                            href="{{ route('interventions.edit', $intervention->id) }}" data-placement="top"
+                                            title="Editar Intervenção">
                                             <i class="far fa-edit"></i>
                                         </a>
 
@@ -94,7 +98,8 @@
                                         </form>
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
-                                            href="{{ route('interventions.show', $intervention->id) }}" data-placement="top" title="Ver Mais Detalhes">
+                                            href="{{ route('interventions.show', $intervention->id) }}" data-placement="top"
+                                            title="Ver Mais Detalhes">
                                             <i class="far fa-eye"></i>
                                         </a>
                                     </div>

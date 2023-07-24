@@ -18,4 +18,9 @@ class Intervention extends Model
     {
         return $this->belongsTo(Veiculo::class, 'veiculos_id');
     }
+
+    public function fatura()
+    {
+        return $this->belongsTo(Fatura::class, 'faturas_id');
+    }
 }
