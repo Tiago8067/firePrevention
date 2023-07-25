@@ -47,6 +47,9 @@
                                         Sem Fatura
                                     @else
                                         {{ $intervention->faturas_id }}
+                                        <a href="" data-toggle="modal" data-target="#sendInvoice-{{ $intervention->faturas_id }}">
+                                            <i class="fas fa-paper-plane text-info" title="Enviar fatura por e-mail"></i>
+                                        </a>
                                     @endif
                                 </td>
                                 <td>{{ $intervention->nome_cliente }}</td>
@@ -71,8 +74,8 @@
                                 <td>
                                     <div class="d-flex justify-content-around">
                                         <a class="btn btn-outline-primary btn-icon animated-hover"
-                                            href="{{ route('interventions.pdf_generator', $intervention->id) }}" data-placement="top"
-                                            title="Gerar Relatótio PDF">
+                                            href="{{ route('interventions.pdf_generator', $intervention->id) }}"
+                                            data-placement="top" title="Gerar Relatótio PDF">
                                             <i class="far fa-file-pdf"></i>
                                         </a>
 
