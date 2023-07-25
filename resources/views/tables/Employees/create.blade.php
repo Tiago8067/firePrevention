@@ -14,16 +14,25 @@
                     <label class="form-label" for="">Nome:</label>
                     <input type="text" class="form-control" name="name" required>
                 </div>
+                @error('name')
+                    <strong class="text-danger">{{ $message }}</strong>
+                @enderror
 
                 <div class="form-group">
                     <label class="form-label" for="">E-mail:</label>
                     <input type="email" class="form-control" name="email" required>
                 </div>
+                @error('email')
+                    <strong class="text-danger">{{ $message }}</strong>
+                @enderror
 
                 <div class="form-group">
                     <label class="form-label" for="">Password:</label>
-                    <input type="password" class="form-control" name="password" minlength="6" required>
+                    <input type="password" class="form-control" name="password" minlength="3" required>
                 </div>
+                @error('password')
+                    <strong class="text-danger">{{ $message }}</strong>
+                @enderror
 
                 <div class="modal-footer">
                     {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> --}}

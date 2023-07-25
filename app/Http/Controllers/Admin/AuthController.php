@@ -14,9 +14,18 @@ class AuthController extends Controller
 
     public function handleLogin(Request $request)
     {
-        $request->validate([
+        /* $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+        ]); */
+
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ], [
+            'email.required' => 'O Email tem de ser Preenchido!',
+            'email.email' => 'O Email tem de ser Válido!',
+            'password.required' => 'A Palavra-Passe tem de ser Preenchida!',
         ]);
 
         $validated = auth()->attempt([
