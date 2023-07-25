@@ -38,12 +38,14 @@ class AuthController extends Controller
             return redirect()->route('index.home')->with('success', 'Login Successfull');
             //return 'login';
         } else {
-            return redirect()->back()->with('error', 'Invalid credentials');
+            return redirect()->back()->with('error', 'Dados inseridos são Inválidos');
         }
     }
 
-    /* public function handleLogout()
+    public function logout()
     {
+        auth()->logout();
+        
         return redirect()->route('index');
-    } */
+    }
 }

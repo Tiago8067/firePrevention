@@ -50,6 +50,13 @@
     </div>
 
     <script>
+        let formLogout = document.getElementById('logout');
+        logout.addEventListener('click', function(){
+            formLogout.submit();
+        })
+    </script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const veiculoForm = document.getElementById('veiculo_dropdown');
             const veiculoIdSelect = document.getElementById('veiculosId');

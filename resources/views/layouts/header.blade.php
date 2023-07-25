@@ -67,10 +67,18 @@
         </div>
         <ul class="navbar-nav ml-auto order-1 order-md-3 navbar-no-expand me-5">
             <li>
-                <a class="btn btn-default btn-flat float-reght btn-block" href="{{ route('index') }}">
+                {{-- <a class="btn btn-default btn-flat float-reght btn-block" href="{{ route('index') }}">
                     <i class="fa fa-fw fa-power-off text-red"></i>
                     Sair
-                </a>
+                </a> --}}
+                <form action="{{ route('logout') }}" method="POST" id="logout">
+                    @csrf
+
+                    <button class="btn btn-default btn-flat float-reght btn-block">
+                        <i class="fa fa-fw fa-power-off text-red"></i>
+                        Sair
+                    </button>
+                </form>
             </li>
         </ul>
     </div>
