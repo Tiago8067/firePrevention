@@ -50,7 +50,7 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const veiculoForm = document.getElementById('veiculo_dropdown');
             const veiculoIdSelect = document.getElementById('veiculosId');
             const loja = document.getElementById('viatura_ou_loja_loja');
@@ -58,15 +58,15 @@
 
             veiculoForm.style.display = 'none';
 
-            cliente.addEventListener('click', function () {
+            cliente.addEventListener('click', function() {
                 veiculoForm.style.display = 'block';
                 veiculoIdSelect.required = true;
             });
 
-            loja.addEventListener('click', function () {
+            loja.addEventListener('click', function() {
                 veiculoForm.style.display = 'none';
                 veiculoIdSelect.required = false;
-                veiculoIdSelect.value = ""; 
+                veiculoIdSelect.value = "";
             });
         });
     </script>
@@ -79,6 +79,32 @@
     <script src="{{ asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin-assets/dist/js/adminlte.min.js') }}"></script>
+    <!-- Chart Js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>
