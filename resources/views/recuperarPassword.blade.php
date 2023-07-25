@@ -27,7 +27,7 @@
         <div class="card card-outline card-danger">
             <div class="card-header">
                 <h3 class="card-title float-none text-center">
-                    Entre para iniciar uma nova sessão
+                    Recuperar password
                 </h3>
             </div>
 
@@ -39,7 +39,7 @@
                     <div class="text-success text-center">{{ session('success') }}</div>
                 @endif
 
-                <form action="{{ route('handleLogin') }}" method="POST">
+                <form action="{{ route('verificaMailParaEnviar') }}" method="POST">
                     @csrf
 
                     <div class="input-group mb-3">
@@ -51,48 +51,17 @@
                         </div>
                     </div>
                     @error('email')
-                        {{-- <div class="text-danger">{{ $message }}</div> --}}
                         <strong class="text-danger">{{ $message }}</strong>
                     @enderror
-                    <div class="input-group mb-1">
-                        <input name="password" type="password" class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    @error('password')
-                        <strong class="text-danger">{{ $message }}</strong>
-                    @enderror
-                    
-                    {{-- <div class="row">
-                        <div class="col-7">
-                            <div class="icheck-primary">
-                                <input name="remember" type="checkbox" id="remember">
-                                <label for="remember">
-                                    Lembrar-me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-5">
-                            <!-- button type="submit" class="btn btn-danger btn-block"><span class="fas fa-sign-in-alt">Entrar</span></button -->
-                            <button type="submit" class="btn btn-danger btn-block"><strong>Entrar</strong></button>
-                        </div>
-                        <!-- /.col -->
-                    </div> --}}
 
-                    <button type="submit" class="btn btn-danger btn-block"><strong>Entrar</strong></button>
+                    <button type="submit" class="btn btn-danger btn-block">
+                        <i class="fas fa-share-square"></i>
+                        Enviar link de recuperação de password
+                    </button>
                 </form>
 
             </div>
             <!-- /.login-card-body -->
-
-            <div class="card-footer text-center">
-                {{-- <a href="{{ route('redefinirPassword') }}">Esqueci a minha password </a> --}}
-                <a href="{{ route('indexPassword') }}">Esqueci a minha password </a>
-            </div>
         </div>
     </div>
     <!-- /.login-box -->
