@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+// use Mail;
+use App\Mail\ForgetPassword;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -47,5 +50,17 @@ class AuthController extends Controller
         auth()->logout();
 
         return redirect()->route('login');
+    }
+
+    public function redefinirPassword()
+    {
+        $mailData = [
+            'title' => 'Mail de FirePrevention',
+            'body' => 'Este é um primeiro teste',
+        ];
+
+        Mail::to('soarestiago@ipvc.pt')->send(new ForgetPassword($mailData));
+
+        dd('email send success');
     }
 }

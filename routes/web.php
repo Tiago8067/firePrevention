@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::get('/admin/login', [AuthController::class, 'index'])->name('login');
 Route::post('/admin/login', [AuthController::class, 'handleLogin'])->name('handleLogin');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/password/reset', [AuthController::class, 'redefinirPassword'])->name('redefinirPassword');
 
 
 Route::group(["middleware" => "auth"], function() {

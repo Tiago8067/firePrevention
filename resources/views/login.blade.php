@@ -65,7 +65,8 @@
                     @error('password')
                         <strong class="text-danger">{{ $message }}</strong>
                     @enderror
-                    <div class="row">
+                    
+                    {{-- <div class="row">
                         <div class="col-7">
                             <div class="icheck-primary">
                                 <input name="remember" type="checkbox" id="remember">
@@ -76,18 +77,20 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-5">
-                            {{-- <button type="submit" class="btn btn-danger btn-block"><span class="fas fa-sign-in-alt">Entrar</span></button> --}}
+                            <!-- button type="submit" class="btn btn-danger btn-block"><span class="fas fa-sign-in-alt">Entrar</span></button -->
                             <button type="submit" class="btn btn-danger btn-block"><strong>Entrar</strong></button>
                         </div>
                         <!-- /.col -->
-                    </div>
+                    </div> --}}
+
+                    <button type="submit" class="btn btn-danger btn-block"><strong>Entrar</strong></button>
                 </form>
 
             </div>
             <!-- /.login-card-body -->
 
-            <div class="card-footer">
-                <a href="#">Esqueci a minha password </a>
+            <div class="card-footer text-center">
+                <a href="{{ route('redefinirPassword') }}">Esqueci a minha password </a>
             </div>
         </div>
     </div>
