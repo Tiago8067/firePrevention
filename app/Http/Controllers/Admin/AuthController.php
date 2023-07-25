@@ -89,4 +89,33 @@ class AuthController extends Controller
     {
         return view('resetPassword');
     }
+
+    public function redefinirPasswordSave(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email']
+        ], [
+            'email.required' => 'O Email tem de ser Preenchido!',
+            'email.email' => 'O Email tem de ser Válido!'
+        ]);
+
+        $email = $request->email;
+
+        $emailExist = User::where('email', '=', $email)->first();
+
+        if ($emailExist === null) {
+            return redirect()->back()->with('error', 'Email inserido não existe.');
+        } else {
+
+            if ($request->password != $request->confirmPassword) {
+                return redirect()->back()->with('error', 'As passwords têm de coincidir.');
+            } else {
+                $emailExist->password = $request->password;
+
+                $emailExist->save();
+    
+                return redirect()->route('login');
+            }
+        }
+    }
 }

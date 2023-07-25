@@ -39,8 +39,9 @@
                     <div class="text-success text-center">{{ session('success') }}</div>
                 @endif
 
-                <form action="{{ route('verificaMailParaEnviar') }}" method="POST">
+                <form action="{{ route('redefinirPasswordSave') }}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div class="input-group mb-3">
                         <input name="email" type="email" class="form-control" placeholder="Email">
