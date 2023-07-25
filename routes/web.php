@@ -28,7 +28,7 @@ Route::post('/admin/login', [AuthController::class, 'handleLogin'])->name('handl
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/password/reset', [AuthController::class, 'indexPassword'])->name('indexPassword');
 Route::post('/password/reset', [AuthController::class, 'verificaMailParaEnviar'])->name('verificaMailParaEnviar');
-Route::get('/password/reset/mail', [AuthController::class, 'redefinirPassword'])->name('redefinirPassword');
+Route::get('/password/reset/pass', [AuthController::class, 'redefinirPassword'])->name('redefinirPassword');
 
 
 Route::group(["middleware" => "auth"], function() {
