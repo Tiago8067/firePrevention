@@ -17,14 +17,14 @@
                                 <div class="col-sm-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="viatura_ou_loja"
-                                            value="Loja" id="viatura_ou_loja_loja">
+                                            value="Loja" id="viatura_ou_loja_loja" required>
                                         <label class="form-check-label" for="viatura_ou_loja_loja">Loja</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="viatura_ou_loja"
-                                            value="Cliente" id="viatura_ou_loja_cliente">
+                                            value="Cliente" id="viatura_ou_loja_cliente" required>
                                         <label class="form-check-label" for="viatura_ou_loja_cliente">Cliente</label>
                                     </div>
                                 </div>
