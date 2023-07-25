@@ -76,7 +76,7 @@ class InterventionController extends Controller
         } else {
             $intervention->veiculos_id = 0;
         }
-        
+        $intervention->faturas_id = 0;
 
         $intervention->save();
 

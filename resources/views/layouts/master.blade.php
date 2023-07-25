@@ -80,7 +80,78 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('admin-assets/dist/js/adminlte.min.js') }}"></script>
     <!-- Chart Js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    @yield('javascript')
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script> --}}
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the interventions per user data from the Blade template
+            var interventionsPerCar = {"Loja":"2","12.AB.35":"4","12.AB.46":"1","12.AB.56":"2"};
+
+            // Get the chart element
+            var chartElement = document.getElementById('car-interventions-chart');
+
+            // Create a new chart instance
+            var userInterventionsChart = new Chart(chartElement, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(interventionsPerCar),
+                    datasets: [{
+                        label: 'Intervenções por Veiculo',
+                        data: Object.values(interventionsPerCar),
+                        backgroundColor: 'rgba(0, 123, 255, 0.8)',
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        borderWidth: 1,
+                        borderRadius: 5,
+                        hoverBackgroundColor: 'rgba(0, 123, 255, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Intervenções  por Veiculo',
+                            font: {
+                                size: 18
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            displayColors: false,
+                            callbacks: {
+                                title: function (tooltipItem) {
+                                    return 'Veiculo: ' + tooltipItem[0].label;
+                                },
+                                label: function (tooltipItem) {
+                                    var dataset = tooltipItem.datasetIndex;
+                                    var index = tooltipItem.dataIndex;
+                                    var value = userInterventionsChart.data.datasets[dataset].data[index];
+                                    return 'Intervenções: ' + value;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 
     <script>
         const ctx = document.getElementById('myChart');
@@ -103,7 +174,7 @@
                 }
             }
         });
-    </script>
+    </script> --}}
 
 </body>
 
