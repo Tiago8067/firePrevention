@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    ola está na HomePage tem de ser relativa aos gráficos
     {{-- <div>
         <canvas id="myChart"></canvas>
     </div> --}}
@@ -13,10 +12,10 @@
 
                     <div class="card-body">
 
-                        <h1>{{ $chart1->options['chart_title'] }}</h1>
+                        {{-- <h1>{{ $chart1->options['chart_title'] }}</h1>
                         {!! $chart1->renderHtml() !!}
 
-                        <hr />
+                        <hr /> --}}
 
                         <h1>{{ $chart2->options['chart_title'] }}</h1>
                         {!! $chart2->renderHtml() !!}
