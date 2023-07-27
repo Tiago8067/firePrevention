@@ -11,7 +11,8 @@
                 <div class="form-group row">
                     <label for="email-{{ $intervention->faturas_id }}" class="col-sm-3 col-form-label">E-mail</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="email-{{ $intervention->faturas_id }}" name="email" required>
+                        <input type="email" class="form-control" id="email-{{ $intervention->faturas_id }}"
+                            name="emailSend" required>
                     </div>
                 </div>
             </div>

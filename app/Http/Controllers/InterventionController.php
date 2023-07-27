@@ -237,7 +237,8 @@ class InterventionController extends Controller
 
             Mail::to('soarestiago@ipvc.pt')->send(new SendInvoice($mailData)->attachData($pdf->output(), "fatura.pdf")); */
 
-        $data["email"] = "soarestiago@ipvc.pt";
+        // $data["email"] = "soarestiago@ipvc.pt";
+        $data["email"] = $request->emailSend;
         $data["title"] = "Fatura";
         $data["body"] = "email teste";
 
