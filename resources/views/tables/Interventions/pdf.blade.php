@@ -29,8 +29,7 @@
                 </tr>
                 <tr>
                     <td>ID do Carro</td>
-                    @if (
-                        $intervention->veiculos_id == 0)
+                    @if ($intervention->veiculos_id == 0)
                         <td>Avaliação realizada em loja</td>
                     @else
                         <td>{{ $intervention->veiculo->marca }}-{{ $intervention->veiculo->modelo }}-{{ $intervention->veiculo->matricula }}
@@ -38,8 +37,8 @@
                     @endif
                 </tr>
                 <tr>
-                    <td>Técnico</td>
-                    <td></td>
+                    <td>ID do Técnico</td>
+                    <td>{{ $intervention->users_id }}</td>
                 </tr>
                 <tr>
                     <td>Número Interno</td>
@@ -242,7 +241,11 @@
                 </tr>
                 <tr>
                     <td>ID da Fatura</td>
-                    <td></td>
+                    @if ($intervention->faturas_id == 0)
+                        <td>Ainda não tem fatura associada</td>
+                    @else
+                        <td>{{ $intervention->faturas_id }}</td>
+                    @endif
                 </tr>
                 <tr>
                     <td>Observações</td>
@@ -250,7 +253,7 @@
                 </tr>
             </tbody>
         </table>
-        
+
     </div>
 </body>
 

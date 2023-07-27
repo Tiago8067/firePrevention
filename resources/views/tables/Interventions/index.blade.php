@@ -25,7 +25,7 @@
                     <thead style="background: #f2f2f2">
                         <tr class="text-center">
                             <th scope="col">ID</th>
-                            <th scope="col">Técnico</th>
+                            <th scope="col">ID do Técnico</th>
                             <th scope="col">ID da Fatura</th>
                             <th scope="col">Nome Cliente</th>
                             <th class="col">Nome de Fábrica</th>
@@ -41,7 +41,7 @@
                         @foreach ($interventions as $intervention)
                             <tr class="text-center">
                                 <td>{{ $intervention->id }}</td>
-                                <td>Técnico</td>
+                                <td>{{ $intervention->users_id }}</td>
                                 <td>
                                     @if ($intervention->faturas_id == 0)
                                         Sem Fatura

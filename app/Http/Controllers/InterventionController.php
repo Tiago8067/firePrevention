@@ -24,7 +24,8 @@ class InterventionController extends Controller
     public function index()
     {
         $interventions = Intervention::paginate(4);
-        return view('tables.Interventions.index', compact('interventions'));
+        $users = User::all();
+        return view('tables.Interventions.index', compact('interventions', 'users'));
     }
 
     /**
