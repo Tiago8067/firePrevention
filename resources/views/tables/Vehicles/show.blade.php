@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('contentShowVehicle')
-    {{-- <div class="main-content mt-5 mb-5"> --}}
     <div class="modal-content mt-5 mb-5">
         <div class="card">
             <div class="card-header">

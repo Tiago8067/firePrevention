@@ -10,17 +10,6 @@
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        {{-- <a class="btn btn-success mx-1" data-toggle="modal" data-target="#createUser">Criar Novo Funcionário</a> --}}
-
-                        {{-- <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
-                            data-bs-target="#createUser">Criar
-                            Novo Veículo</button>
-                        <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="createUser" aria-hidden="true">
-                            <div class="modal-dialog">
-                                @include('tables.Vehicles.create')
-                            </div>
-                        </div> --}}
                         <a class="btn btn-success mx-1 border" href="{{ route('vehicles.create') }}" data-placement="top"
                             title="Editar Funcionáro">
                             Criar Novo Veículo
@@ -50,12 +39,6 @@
                                 <td>{{ $veiculo->marca }}</td>
                                 <td>{{ $veiculo->modelo }}</td>
                                 <td>{{ $veiculo->matricula }}</td>
-                                {{-- <td>
-                                    {{ $veiculo->intervention }}
-                                    @if ($veiculo->intervention->veiculos_id == null)
-                                        nao tem
-                                    @endif
-                                </td> --}}
                                 <td>
                                     <div class="d-flex justify-content-around">
                                         @if ($veiculo->intervention != '')
@@ -90,19 +73,6 @@
                                                     title="Eliminar Veículo"><i class="far fa-trash-alt"></i></button>
                                             </form>
                                         @endif
-
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Veículo" data-bs-toggle="modal"
-                                            data-bs-target="#deleteVehicle">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                        <div class="modal fade" id="deleteVehicle" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteVehicle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Vehicles.delete')
-                                            </div>
-                                        </div> --}}
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('vehicles.show', $veiculo->id) }}" data-placement="top"

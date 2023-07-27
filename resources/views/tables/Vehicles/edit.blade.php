@@ -4,7 +4,6 @@
     <div class="modal-content mt-5">
         <div class="modal-header">
             <h5 class="modal-title fs-3" id="staticBackdropLabel">Atualizar Veículo Número {{ $veiculo->id }}</h5>
-            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
         </div>
         <div class="modal-body">
             <form action="{{ route('vehicles.update', $veiculo->id) }}" method="POST">
@@ -28,8 +27,6 @@
 
 
                 <div class="modal-footer">
-                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> --}}
-                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar Atrás</button> --}}
                     <a class="btn btn-secondary" href="{{ route('vehicles.index') }}">Voltar Atrás</a>
                     <button type="submit" class="btn btn-success">Atualizar Veículo</button>
                 </div>
