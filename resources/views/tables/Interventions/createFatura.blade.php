@@ -21,9 +21,17 @@
                 <div class="form-group">
                     <label class="col-form-label" for="desconto">Desconto</label>
                     <div class="input-group-append">
-                        <input name="desconto" id="desconto" type="number" min="0" step="0.01"
-                            class="form-control" placeholder="Valor do Desconto" required>
-                        <span class="input-group-text">€</span>
+                        {{-- <input name="desconto" id="desconto" type="number" min="0" step="0.01"
+                            class="form-control" placeholder="Valor do Desconto" required> --}}
+                        {{-- <span class="input-group-text">€</span> --}}
+                        <select name="desconto" id="desconto" class="form-control">
+                            <option value="0.00">Desconto Associado</option>
+                            <option value="0.10">10</option>
+                            <option value="0.20">20</option>
+                            <option value="0.30">30</option>
+                            <option value="0.40">40</option>
+                        </select>
+                        <span class="input-group-text">%</span>
                     </div>
                 </div>
 

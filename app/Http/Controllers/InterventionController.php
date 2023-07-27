@@ -222,13 +222,34 @@ class InterventionController extends Controller
     {
         $intervention = Intervention::findOrFail($id);
 
+        /* $desconto = $request->desconto;
+        $valor = $request->valor;
+
+        $totalDescontado = $valor * $desconto;
+
+        $precoFinal = $valor - $totalDescontado; */
+
         $fatura = new Fatura();
         $fatura->data_criacao = date('Y-m-d');
         $data_expiracao = Carbon::now();
         $fatura->data_expeiracao = $data_expiracao->addYears(1);
         $fatura->valor = $request->valor;
-        $fatura->desconto = $request->desconto;
-        $fatura->preco = 10;
+        if ($request->desconto == 0.00) {
+            $fatura->desconto = 66;
+            $fatura->preco = $request->valor;
+        } else {
+            $desconto = $request->desconto;
+            $valor = $request->valor;
+
+            $totalDescontado = $valor * $desconto;
+
+            $precoFinal = $valor - $totalDescontado;
+
+            $fatura->desconto = $request->desconto;
+            $fatura->preco = $precoFinal;
+        }
+
+        // $fatura->preco = 10;
         //$fatura->preco = $request->valor * $request->desconto;
         $fatura->observacoes = $request->observacaoFatura;
 

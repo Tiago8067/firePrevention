@@ -23,17 +23,46 @@
                     <td>NOME DO CLIENTE</td>
                     <td></td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td>NUMERO VAT</td>
                     <td></td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td>PAÍS</td>
                     <td>Portugal</td>
                 </tr>
                 <tr>
                     <td>DESCONTO</td>
-                    <td>{{ $fatura->desconto }}</td>
+                    {{-- <td>{{ $fatura->desconto }}</td> --}}
+                    {{-- @if ($fatura->desconto == 0.1)
+                        <td>10%</td>
+                        @if ($fatura->desconto == 0.2)
+                            <td>20%</td>
+                            @if ($fatura->desconto == 0.3)
+                                <td>30%</td>
+                            @else
+                                <td>40%</td>
+                            @endif --}}
+                    @switch($fatura->desconto)
+                        @case(0.1)
+                            <td>10%</td>
+                        @break
+
+                        @case(0.2)
+                            <td>20%</td>
+                        @break
+
+                        @case(0.3)
+                            <td>30%</td>
+                        @break
+
+                        @case(0.4)
+                            <td>40%</td>
+                        @break
+
+                        @default
+                            <td>Não teve Desconto</td>
+                    @endswitch
                 </tr>
                 <tr>
                     <td>OBSERVAÇÕES</td>
@@ -49,7 +78,7 @@
                 </tr>
             </tbody>
         </table>
-        
+
     </div>
 </body>
 
