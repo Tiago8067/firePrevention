@@ -71,18 +71,19 @@ class AuthController extends Controller
 
         $emailExist = User::where('email', '=', $email)->first();
 
-        if ($emailExist === null) {
+        /* if ($emailExist === null) {
             return redirect()->back()->with('error', 'Email inserido não existe.');
-        } else {
+        } else { */
             $mailData = [
                 'title' => 'Mail de FirePrevention',
                 'body' => 'Este é um primeiro teste',
             ];
 
-            Mail::to('soarestiago@ipvc.pt')->send(new ForgetPassword($mailData));
+            // Mail::to('soarestiago@ipvc.pt')->send(new ForgetPassword($mailData));
+            Mail::to($email)->send(new ForgetPassword($mailData));
 
             return redirect()->route('indexPassword')->with('success', 'Enviamos o link de redefinição de password para o seu e-mail.');
-        }
+        /* } */
     }
 
     public function redefinirPassword()

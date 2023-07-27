@@ -224,20 +224,7 @@ class InterventionController extends Controller
         $fatura = Fatura::findOrFail($intervention->faturas_id);
 
         $pdf = PDF::loadView('tables.Interventions.faturaPdf', compact('intervention', 'fatura'));
-        // return $pdf->download('fatura.pdf');
 
-        /* $pdf = PDF::loadView('tables.Interventions.faturaPdf', compact('intervention', 'fatura'));
-        return $pdf->stream('fatura.pdf'); */
-
-        //$pdf = PDF::loadFile(public_path().'')
-        /* $mailData = [
-                'title' => 'Mail de FirePrevention',
-                'body' => 'Este é um primeiro teste',
-            ];
-
-            Mail::to('soarestiago@ipvc.pt')->send(new SendInvoice($mailData)->attachData($pdf->output(), "fatura.pdf")); */
-
-        // $data["email"] = "soarestiago@ipvc.pt";
         $data["email"] = $request->emailSend;
         $data["title"] = "Envio da Fatura";
         $data["body"] = "esperamos que se encontre bem, serve este e-mail para o notificar da fatura referente ha intervenção efetuada por FirePrevention.";
@@ -248,6 +235,6 @@ class InterventionController extends Controller
                 ->attachData($pdf->output(), "fatura.pdf");
         });
 
-        dd('success');
+        return redirect()->back();
     }
 }
