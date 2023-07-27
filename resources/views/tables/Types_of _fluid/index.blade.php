@@ -10,16 +10,6 @@
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-
-                        {{-- <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
-                        data-bs-target="#createUser">Criar
-                        Novo Tipo de Fluído</button>
-                    <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="createUser" aria-hidden="true">
-                        <div class="modal-dialog">
-                            @include('tables.Types_of _fluid.create')
-                        </div>
-                    </div> --}}
                         <a class="btn btn-success mx-1 border" href="{{ route('fluids.create') }}" data-placement="top">
                             Criar Novo Tipo de Fluído
                         </a>

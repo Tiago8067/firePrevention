@@ -17,14 +17,11 @@
 
                 <div class="form-group">
                     <label class="form-label" for="">Descrição:</label>
-                    {{-- <textarea name="descricao" type="text" class="form-control" value="{{ $fluid->descricao }}"
-                        placeholder="Descreva sucintamente a ação do tipo de fluido interno" required></textarea> --}}
                     <textarea name="descricao" type="text" class="form-control"
                         placeholder="Descreva sucintamente a ação do tipo de fluido interno" required>{{ $fluid->descricao }}</textarea>
                 </div>
 
                 <div class="modal-footer">
-                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar Atrás</button> --}}
                     <a class="btn btn-secondary" href="{{ route('fluids.index') }}">Voltar Atrás</a>
                     <button type="submit" class="btn btn-success">Atualizar Tipo de Fluído</button>
                 </div>

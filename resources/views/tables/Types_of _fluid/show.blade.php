@@ -2,7 +2,6 @@
 
 @section('contentShowFluid')
     <div class="modal-content mt-5 mb-5">
-        {{-- <div class="main-content mt-5 mb-5"> --}}
         <div class="card">
             <div class="card-header">
                 <div class="row">
