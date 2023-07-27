@@ -42,18 +42,19 @@
             </div>
 
 
-            <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
+            @if ($user->intervention != '')
+            @else
+                <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a type="button" class="btn btn-success" href="{{ route('users.edit', $user->id) }}">Editar</a>
 
-                <a type="button" class="btn btn-success" href="{{ route('users.edit', $user->id) }}">Editar</a>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
 
-                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-
-                    <button
-                        class="btn btn-success">Eliminar</i></button>
-                </form>
-            </div>
+                        <button class="btn btn-success">Eliminar</i></button>
+                    </form>
+                </div>
+            @endif
 
         </div>
     </div>

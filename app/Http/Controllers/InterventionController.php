@@ -13,6 +13,7 @@ use App\Models\Intervention;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\SendInvoice;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class InterventionController extends Controller
@@ -41,6 +42,10 @@ class InterventionController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = Auth::user()->id;
+
+        // dd($user_id);
+
         $intervention = new Intervention();
         $intervention->nome_cliente = 'sol';
         $intervention->data_servico = date('Y-m-d');
@@ -80,7 +85,7 @@ class InterventionController extends Controller
             $intervention->veiculos_id = 0;
         }
         $intervention->faturas_id = 0;
-        $intervention->users_id = 0;
+        $intervention->users_id = $user_id;
 
         $intervention->save();
 

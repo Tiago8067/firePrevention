@@ -32,12 +32,13 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'alpha', 'min:3', 'max:50'],
+            //'name' => ['required', 'alpha', 'min:3', 'max:50'],
+            'name' => ['required', 'min:3', 'max:50'],
             'email' => ['required', 'email'],
             'password' => ['required']
         ], [
             'name.required' => 'O Nome tem de ser Preenchido!',
-            'name.alpha' => 'O Nome deve ter apenas letras!',
+            // 'name.alpha' => 'O Nome deve ter apenas letras!',
             'name.min' => 'O Nome tem de ter pelo menos 3 letras!',
             'name.max' => 'O Nome não pode ultrapassar as 50 letras!',
             'email.required' => 'O Email tem de ser Preenchido!',

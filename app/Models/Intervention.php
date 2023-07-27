@@ -24,4 +24,9 @@ class Intervention extends Model
     {
         return $this->belongsTo(Fatura::class, 'faturas_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
 }

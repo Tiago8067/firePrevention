@@ -38,20 +38,39 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <a class="btn btn-outline-success btn-icon animated-hover"
-                                            href="{{ route('users.edit', $user->id) }}" data-placement="top"
-                                            title="Editar Funcionáro">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        @if ($user->intervention != '')
+                                            <a class="btn btn-outline-secondary btn-icon animated-hover"
+                                                href="{{ route('users.edit', $user->id) }}" data-placement="top"
+                                                title="Editar Funcionáro" style="pointer-events: none;">
+                                                <i class="far fa-edit"></i>
+                                            </a>
 
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
 
-                                            <button
-                                                class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
-                                                title="Eliminar Funcionáro"><i class="far fa-trash-alt"></i></button>
-                                        </form>
+                                                <button
+                                                    class="btn btn-outline-secondary btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Funcionáro"style="pointer-events: none;">
+                                                    <i class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        @else
+                                            <a class="btn btn-outline-success btn-icon animated-hover"
+                                                href="{{ route('users.edit', $user->id) }}" data-placement="top"
+                                                title="Editar Funcionáro">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
+                                                    title="Eliminar Funcionáro">
+                                                    <i class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        @endif
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('users.show', $user->id) }}" data-placement="top"
