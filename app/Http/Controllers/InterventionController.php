@@ -48,7 +48,8 @@ class InterventionController extends Controller
         // dd($user_id);
 
         $intervention = new Intervention();
-        $intervention->nome_cliente = 'sol';
+        // $intervention->nome_cliente = 'sol';
+        $intervention->nome_cliente = $request->client_name;
         $intervention->data_servico = date('Y-m-d');
         $intervention->servico = $request->servico;
         $intervention->viatura_ou_loja = $request->viatura_ou_loja;
@@ -119,7 +120,8 @@ class InterventionController extends Controller
     public function update(Request $request, $id)
     {
         $intervention = Intervention::findOrFail($id);
-        $intervention->nome_cliente = 'sol';
+        // $intervention->nome_cliente = 'sol';
+        $intervention->nome_cliente = $request->client_name;
         $intervention->data_servico = date('Y-m-d');
         $intervention->servico = $request->servico;
         $intervention->viatura_ou_loja = $request->viatura_ou_loja;

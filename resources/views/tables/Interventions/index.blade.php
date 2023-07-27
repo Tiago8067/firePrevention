@@ -1,6 +1,56 @@
 @extends('layouts.master')
 
 @section('content')
+    @php
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, [
+            CURLOPT_URL => 'https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/clients',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => ['Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMCwidXNlcm5hbWUiOiJpcHZjd2ViIiwiY3JlYXRlZCI6IjIwMjMtMDctMjcgMTk6NDE6MTYifQ.Lfriiq1hwdBuVOmzhZtIuVT7HaU7Vf4PxqJUHrW2Q-s', 'Cookie: PHPSESSID=0129293ed27d29ae36b056ea5725b86d'],
+        ]);
+        
+        $response = curl_exec($curl);
+        
+        curl_close($curl);
+        
+        // Read JSON file
+        //$json_data = file_get_contents($response);
+        
+        // Decode JSON data into PHP array
+        $response_data = json_decode($response);
+        
+        // All client data exists in 'data' object
+        $client_data = $response_data->data;
+        
+        //$array = json_decode($response, true);
+        //echo $array['name'];
+        //var_dump($array);
+        //var_dump($client_data);
+        //echo '<br /><br />';
+
+        /* foreach ($client_data as $data) {
+            echo "name: " .$data->name;
+            echo '<br /><br />';
+        } */
+        /* foreach ($array as $array) {
+            if ($array == false) {
+                echo 'nao tem';
+            } else {
+                //echo "name: ".$array->data;
+                /* foreach ($array->data as $data) {
+                    echo "name: ".$data->name;
+                } */
+          //  }
+            //echo "name: ".$array->name;
+        //} */
+    @endphp
     <div class="main-content mt-4 mb-4">
         <div class="card">
             <div class="card-header">
@@ -53,7 +103,8 @@
                                         </a>
                                         <div class="modal fade" id="sendInvoice-{{ $intervention->faturas_id }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                            aria-labelledby="sendInvoice-{{ $intervention->faturas_id }}" aria-hidden="true">
+                                            aria-labelledby="sendInvoice-{{ $intervention->faturas_id }}"
+                                            aria-hidden="true">
                                             <div class="modal-dialog">
                                                 @include('tables.Interventions.send-invoice')
                                             </div>
@@ -100,7 +151,8 @@
                                                 <i class="far fa-edit"></i>
                                             </a>
 
-                                            <form action="{{ route('interventions.destroy', $intervention->id) }}" method="POST">
+                                            <form action="{{ route('interventions.destroy', $intervention->id) }}"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
 

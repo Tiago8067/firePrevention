@@ -1,6 +1,26 @@
 @extends('layouts.master')
 
 @section('contentEditIntervention')
+    @php
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, [
+            CURLOPT_URL => 'https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/clients',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => ['Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMCwidXNlcm5hbWUiOiJpcHZjd2ViIiwiY3JlYXRlZCI6IjIwMjMtMDctMjcgMTk6NDE6MTYifQ.Lfriiq1hwdBuVOmzhZtIuVT7HaU7Vf4PxqJUHrW2Q-s', 'Cookie: PHPSESSID=0129293ed27d29ae36b056ea5725b86d'],
+        ]);
+        
+        $response = curl_exec($curl);
+        curl_close($curl);
+        $response_data = json_decode($response);
+        $client_data = $response_data->data;
+    @endphp
     <div class="modal-content mt-5 mb-5">
         <div class="modal-header">
             <h5 class="modal-title fs-3" id="staticBackdropLabel">Atualizar Intervenção Número {{ $intervention->id }}</h5>
@@ -46,11 +66,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-form-label" for="">Escolha o cliente</label>
-                            <select name="client_id" id="client_id" class="form-control">
+                            <label class="col-form-label" for="client_id">Escolha o cliente</label>
+                            <select name="client_name" id="client_id" class="form-control">
                                 <option value="">Escolher Cliente</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
+                                @foreach ($client_data as $data)
+                                    <option value="{{ $data->name }}">{{$data->name}}</option>
+                                @endforeach
                             </select>
                         </div>
 
