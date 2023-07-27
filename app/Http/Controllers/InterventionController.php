@@ -80,6 +80,7 @@ class InterventionController extends Controller
             $intervention->veiculos_id = 0;
         }
         $intervention->faturas_id = 0;
+        $intervention->users_id = 0;
 
         $intervention->save();
 
@@ -160,7 +161,35 @@ class InterventionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $intervention = Intervention::findOrFail($id);
+
+        $intervention->delete();
+
+        return redirect()->route('interventions.index');
+    }
+
+    public function trashed()
+    {
+        $interventions = Intervention::onlyTrashed()->get();
+        return view('tables.Interventions.trashed', compact('interventions'));
+    }
+
+    public function restore($id)
+    {
+        $intervention = Intervention::onlyTrashed()->findOrFail($id);
+
+        $intervention->restore();
+
+        return redirect()->back();
+    }
+
+    public function forceDelete($id)
+    {
+        $intervention = Intervention::onlyTrashed()->findOrFail($id);
+
+        $intervention->forceDelete();
+
+        return redirect()->back();
     }
 
     public function pdf_generator($id)

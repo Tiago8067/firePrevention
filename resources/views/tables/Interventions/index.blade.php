@@ -14,7 +14,7 @@
                             Criar Nova Intervenção
                         </a>
 
-                        <a class="btn btn-warning mx-1" href="#">Intervenções Apagados</a>
+                        <a class="btn btn-warning mx-1" href="{{ route('interventions.trashed') }}">Intervenções Apagados</a>
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@
                                                 <i class="far fa-edit"></i>
                                             </a>
 
-                                            <form action="{{-- {{ route('interventions.destroy', $intervention->id) }} --}}" method="POST">
+                                            <form action="{{ route('interventions.destroy', $intervention->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
