@@ -47,9 +47,17 @@
                                         Sem Fatura
                                     @else
                                         {{ $intervention->faturas_id }}
-                                        <a href="" data-toggle="modal" data-target="#sendInvoice-{{ $intervention->faturas_id }}">
+                                        <a href="" data-bs-toggle="modal"
+                                            data-bs-target="#sendInvoice-{{ $intervention->faturas_id }}">
                                             <i class="fas fa-paper-plane text-info" title="Enviar fatura por e-mail"></i>
                                         </a>
+                                        <div class="modal fade" id="sendInvoice-{{ $intervention->faturas_id }}"
+                                            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                            aria-labelledby="sendInvoice-{{ $intervention->faturas_id }}" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                @include('tables.Interventions.send-invoice')
+                                            </div>
+                                        </div>
                                     @endif
                                 </td>
                                 <td>{{ $intervention->nome_cliente }}</td>

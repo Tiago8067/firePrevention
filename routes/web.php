@@ -55,6 +55,7 @@ Route::group(["middleware" => "auth"], function() {
     Route::get('/tables/interventions/{id}/create_invoice', [InterventionController::class, 'create_invoice'])->name('interventions.create_invoice');
     Route::post('/tables/interventions/{id}/store_invoice', [InterventionController::class, 'store_invoice'])->name('interventions.store_invoice');
     Route::get('/tables/interventions/{id}/fatura-pdf-generator', [InterventionController::class, 'faturaPdf_generator'])->name('interventions.faturaPdf_generator');
+    Route::post('/tables/interventions/{id}/send_invoice', [InterventionController::class, 'invoiceSendPDF'])->name('interventions.invoiceSendPDF');
     Route::resource('/tables/interventions', InterventionController::class);
 
 });

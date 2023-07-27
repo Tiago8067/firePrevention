@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fatura;
-use App\Models\Intervention;
-use App\Models\TipoFluido;
-use App\Models\Veiculo;
-use Carbon\Carbon;
-//use Barryvdh\DomPDF\PDF;
 use PDF;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Fatura;
+use App\Models\Veiculo;
+use App\Models\TipoFluido;
+//use Barryvdh\DomPDF\PDF;
+use App\Models\Intervention;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Mail\SendInvoice;
+use Illuminate\Support\Facades\Mail;
 
 class InterventionController extends Controller
 {
@@ -212,5 +215,38 @@ class InterventionController extends Controller
         $pdf = PDF::loadView('tables.Interventions.faturaPdf', compact('intervention', 'fatura'));
 
         return $pdf->download('fatura.pdf');
+    }
+
+    public function invoiceSendPDF(Request $request, $id)
+    {
+        $intervention = Intervention::findOrFail($id);
+
+        $fatura = Fatura::findOrFail($intervention->faturas_id);
+
+        $pdf = PDF::loadView('tables.Interventions.faturaPdf', compact('intervention', 'fatura'));
+        // return $pdf->download('fatura.pdf');
+
+        /* $pdf = PDF::loadView('tables.Interventions.faturaPdf', compact('intervention', 'fatura'));
+        return $pdf->stream('fatura.pdf'); */
+
+        //$pdf = PDF::loadFile(public_path().'')
+        /* $mailData = [
+                'title' => 'Mail de FirePrevention',
+                'body' => 'Este é um primeiro teste',
+            ];
+
+            Mail::to('soarestiago@ipvc.pt')->send(new SendInvoice($mailData)->attachData($pdf->output(), "fatura.pdf")); */
+
+        $data["email"] = "soarestiago@ipvc.pt";
+        $data["title"] = "Fatura";
+        $data["body"] = "email teste";
+
+        Mail::send('emails.invoiceSend', $data, function ($message) use ($data, $pdf) {
+            $message->to($data["email"])
+                ->subject($data["title"]) //;
+                ->attachData($pdf->output(), "fatura.pdf");
+        });
+
+        dd('success');
     }
 }
