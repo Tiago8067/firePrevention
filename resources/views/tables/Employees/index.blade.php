@@ -10,17 +10,6 @@
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-end">
-                        {{-- <a class="btn btn-success mx-1" data-toggle="modal" data-target="#createUser">Criar Novo Funcionário</a> --}}
-
-                        {{-- <button type="button" class="btn btn-success mx-1 border" data-bs-toggle="modal"
-                            data-bs-target="#createUser">Criar
-                            Novo Funcionário</button>
-                        <div class="modal fade" id="createUser" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="createUser" aria-hidden="true">
-                            <div class="modal-dialog">
-                                @include('tables.Employees.create')
-                            </div>
-                        </div> --}}
                         <a class="btn btn-success mx-1 border" href="{{ route('users.create') }}" data-placement="top">
                             Criar Novo Funcionário
                         </a>
@@ -49,33 +38,6 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            style="pointer-events: none;" data-placement="top" title="Editar Funcionáro">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            style="pointer-events: none;" data-placement="top" title="Eliminar Funcionáro">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-
-                                        <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            style="pointer-events: none;" data-placement="top" title="Ver Mais Detalhes">
-                                            <i class="far fa-eye"></i>
-                                        </a> --}}
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('users.edit', $user->id) }}" data-placement="top"
-                                            title="Editar Funcionáro" data-bs-toggle="modal"
-                                            data-bs-target="#editUser">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-                                        <div class="modal fade" id="editUser" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="editUser"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Employees.edit')
-                                            </div>
-                                        </div> --}}
                                         <a class="btn btn-outline-success btn-icon animated-hover"
                                             href="{{ route('users.edit', $user->id) }}" data-placement="top"
                                             title="Editar Funcionáro">
@@ -90,33 +52,6 @@
                                                 class="btn btn-outline-warning btn-icon animated-hover"data-placement="top"
                                                 title="Eliminar Funcionáro"><i class="far fa-trash-alt"></i></button>
                                         </form>
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('users.destroy', $user->id) }}" data-placement="top"
-                                            title="Eliminar Funcionáro">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a> --}}
-
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top" title="Eliminar Funcionáro" data-bs-toggle="modal"
-                                            data-bs-target="#deleteUser">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                        <div class="modal fade" id="deleteUser" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteUser"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('tables.Employees.delete')
-                                            </div>
-                                        </div> --}}
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover"
-                                            href="{{ route('users.edit', $user->id) }}" data-placement="top">
-                                            <i class="far fa-edit"></i>
-                                        </a> --}}
-
-                                        {{-- <a class="btn btn-outline-secondary btn-icon animated-hover" href=""
-                                            data-placement="top">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a> --}}
 
                                         <a class="btn btn-outline-info btn-icon animated-hover"
                                             href="{{ route('users.show', $user->id) }}" data-placement="top"
