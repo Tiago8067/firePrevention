@@ -239,8 +239,8 @@ class InterventionController extends Controller
 
         // $data["email"] = "soarestiago@ipvc.pt";
         $data["email"] = $request->emailSend;
-        $data["title"] = "Fatura";
-        $data["body"] = "email teste";
+        $data["title"] = "Envio da Fatura";
+        $data["body"] = "esperamos que se encontre bem, serve este e-mail para o notificar da fatura referente ha intervenção efetuada por FirePrevention.";
 
         Mail::send('emails.invoiceSend', $data, function ($message) use ($data, $pdf) {
             $message->to($data["email"])

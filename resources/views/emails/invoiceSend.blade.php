@@ -357,7 +357,7 @@
 </head>
 
 <body>
-    <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+    <span class="preheader">Envio da Fatura</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
         <tr>
             <td>&nbsp;</td>
@@ -375,28 +375,7 @@
                                         <td>
                                             <h3>{{ $title }}</h3>
                                             <p>Olá,</p>
-                                            <p>Está a receber este email porque recebemos um pedido de redefinição de
-                                                password para a sua conta.</p>
-                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0"
-                                                class="btn btn-primary">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="left">
-                                                            <table role="presentation" border="0" cellpadding="0"
-                                                                cellspacing="0">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <h3>{{ $body }}</h3>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <p>Este link de redefinição de password irá expirar em 60 minutos.</p>
-                                            <p>Se não solicitou uma redefinição de password, não é necessário fazer mais
-                                                nenhuma ação</p>
+                                            <p>{{ $body }}</p>
                                             <p>Regards,</p>
                                             <p>Laravel</p>
                                         </td>
