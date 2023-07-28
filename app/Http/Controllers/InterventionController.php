@@ -24,8 +24,24 @@ class InterventionController extends Controller
     public function index()
     {
         $interventions = Intervention::paginate(4);
+        $allDiferentInterventions = Intervention::select('nome_cliente')->distinct()->get();
+        $allDifInvoices = Intervention::select('faturas_id')->distinct()->get();
+        $allDifAprovs = Intervention::select('aprovado')->distinct()->get();
         $users = User::all();
-        return view('tables.Interventions.index', compact('interventions', 'users'));
+        return view('tables.Interventions.index', compact('interventions', 'users', 'allDiferentInterventions', 'allDifInvoices', 'allDifAprovs'));
+    }
+
+    public function filter()
+    {
+        /* $interventions = Intervention::paginate(4); */
+        $allDiferentInterventions = Intervention::select('nome_cliente')->distinct()->get();
+        $allDifInvoices = Intervention::select('faturas_id')->distinct()->get();
+        $allDifAprovs = Intervention::select('aprovado')->distinct()->get();
+        $users = User::all();
+
+        $interventions = $allDifAprovs::paginate(4);
+
+        return view('tables.Interventions.index', compact('interventions', 'users', 'allDiferentInterventions', 'allDifInvoices', 'allDifAprovs'));
     }
 
     /**

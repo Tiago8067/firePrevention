@@ -34,7 +34,7 @@
         //var_dump($array);
         //var_dump($client_data);
         //echo '<br /><br />';
-
+        
         /* foreach ($client_data as $data) {
             echo "name: " .$data->name;
             echo '<br /><br />';
@@ -47,9 +47,10 @@
                 /* foreach ($array->data as $data) {
                     echo "name: ".$data->name;
                 } */
-          //  }
-            //echo "name: ".$array->name;
+        //  }
+        //echo "name: ".$array->name;
         //} */
+        
     @endphp
     <div class="main-content mt-4 mb-4">
         <div class="card">
@@ -64,7 +65,20 @@
                             Criar Nova Intervenção
                         </a>
 
-                        <a class="btn btn-warning mx-1" href="{{ route('interventions.trashed') }}">Intervenções Apagados</a>
+                        {{-- <a href="" data-bs-toggle="modal"
+                            data-bs-target="#filtros" class="btn btn-info mx-1">
+                            Filtros
+                        </a>
+                        <div class="modal fade" id="filtros" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1"
+                            aria-labelledby="filtros" aria-hidden="true">
+                            <div class="modal-dialog">
+                                @include('tables.Interventions.filtros')
+                            </div>
+                        </div> --}}
+
+                        <a class="btn btn-warning mx-1" href="{{ route('interventions.trashed') }}">Intervenções
+                            Apagados</a>
                     </div>
 
                 </div>
